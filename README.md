@@ -1,6 +1,6 @@
 # Chuni-Scuffed
-Chunithm controller development.
-[![Prototype](http://img.youtube.com/vi/CZmXX8uxxB4/0.jpg)](http://www.youtube.com/watch?v=CZmXX8uxxB4 "Chunithm Early Prototype") <br>
+Chunithm controller development. <br>
+[![Prototype](http://img.youtube.com/vi/CZmXX8uxxB4/0.jpg)](http://www.youtube.com/watch?v=CZmXX8uxxB4 "Chunithm Early Prototype") 
 ---
 ## Components Used:
  - Raspberry Pi Pico
