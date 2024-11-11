@@ -8,9 +8,9 @@
 
 #define DEBUG
 #ifdef DEBUG
-#define DEBUG_PRINT(x) //Serial.println(x)
+#define DEBUG_PRINT(x)  //Serial.println(x)
 // Remove the F() macro from printf to avoid type conversion issues
-#define DEBUG_PRINTF(format, ...) //Serial.printf(format, __VA_ARGS__)
+#define DEBUG_PRINTF(format, ...)  //Serial.printf(format, __VA_ARGS__)
 #else
 #define DEBUG_PRINT(x)
 #define DEBUG_PRINTF(format, ...)
@@ -19,7 +19,7 @@
 const uint16_t TOF_MIN_DISTANCE = 100;
 const uint16_t TOF_MAX_DISTANCE = 340;
 const uint32_t DEBOUNCE_TIME_MS = 5;
-const uint32_t TOF_SAMPLE_RATE_MS = 5;
+const uint32_t TOF_SAMPLE_RATE_MS = 1;
 const uint16_t TOF_DIFFERENCE = 40;
 const uint8_t NKRO_REPORT_SIZE = 10;  // 80 bits
 const uint8_t REPORT_ID = 1;
@@ -36,26 +36,26 @@ struct KeyMapping {
   uint8_t keycode;
 };
 
-struct __attribute__((packed)) NKROReport { // reduced bits by packing it
-  uint8_t modifiers;                // Modifier keys
-  uint8_t reserved;                 // Reserved byte
-  uint8_t keys[NKRO_REPORT_SIZE];  // Bitmap of keys
+struct __attribute__((packed)) NKROReport {  // reduced bits by packing it
+  uint8_t modifiers;                         // Modifier keys
+  uint8_t reserved;                          // Reserved byte
+  uint8_t keys[NKRO_REPORT_SIZE];            // Bitmap of keys
 };
 
 // Key state tracking
 struct KeyState {
-    bool is_pressed;
-    uint32_t last_change;
-    uint8_t source;  // 0 = cap sensor, 1 = ToF
+  bool is_pressed;
+  uint32_t last_change;
+  uint8_t source;  // 0 = cap sensor, 1 = ToF
 };
 
 const KeyMapping TOF_MAPPINGS[] = {
-  { 100, 140, 0x38 },  // IR1
-  { 140, 180, 0x37 },  // IR2
-  { 180, 220, 0x36 },  // IR3
-  { 220, 260, 0x30 },  // IR4
-  { 260, 300, 0x2F },  // IR5
-  { 300, 340, 0x33 }   // IR6 
+  { 100, 140, 0x39 },  // IR1
+  { 140, 180, 0x38 },  // IR2
+  { 180, 220, 0x35 },  // IR3
+  { 220, 260, 0x34 },  // IR4
+  { 260, 300, 0x31 },  // IR5
+  { 300, 340, 0x30 }   // IR6
 };
 
 const uint8_t TOF_MAPPING_COUNT = 6;
@@ -99,24 +99,24 @@ uint8_t const desc_hid_report[] PROGMEM = {
   0x75, 0x03,  //   REPORT_SIZE (3)
   0x91, 0x03,  //   OUTPUT (Cnst,Var,Abs)
   // Bitmap of keys
-  0x95, 0x28,           // REPORT_COUNT (40)
-  0x75, 0x01,           // REPORT_SIZE (1)
-  0x15, 0x00,           // LOGICAL_MINIMUM (0)
-  0x25, 0x01,           // LOGICAL_MAXIMUM (1)
-  0x05, 0x07,           // USAGE_PAGE (Keyboard)
-  0x19, 0x00,           // USAGE_MINIMUM (0)
-  0x29, 0x27,           // USAGE_MAXIMUM (39) 
-  0x81, 0x02,           // INPUT (Data,Var,Abs)
+  0x95, 0x28,  // REPORT_COUNT (40)
+  0x75, 0x01,  // REPORT_SIZE (1)
+  0x15, 0x00,  // LOGICAL_MINIMUM (0)
+  0x25, 0x01,  // LOGICAL_MAXIMUM (1)
+  0x05, 0x07,  // USAGE_PAGE (Keyboard)
+  0x19, 0x00,  // USAGE_MINIMUM (0)
+  0x29, 0x27,  // USAGE_MAXIMUM (39)
+  0x81, 0x02,  // INPUT (Data,Var,Abs)
 
-  0x95, 0x28,           // REPORT_COUNT (40)
-  0x75, 0x01,           // REPORT_SIZE (1)
-  0x15, 0x00,           // LOGICAL_MINIMUM (0)
-  0x25, 0x01,           // LOGICAL_MAXIMUM (1)
-  0x05, 0x07,           // USAGE_PAGE (Keyboard)
-  0x19, 0x27,           // USAGE_MINIMUM (39)
-  0x29, 0x4F,           // USAGE_MAXIMUM (79)
-  0x81, 0x02,           // INPUT (Data,Var,Abs)
-  0xc0                  // END
+  0x95, 0x28,  // REPORT_COUNT (40)
+  0x75, 0x01,  // REPORT_SIZE (1)
+  0x15, 0x00,  // LOGICAL_MINIMUM (0)
+  0x25, 0x01,  // LOGICAL_MAXIMUM (1)
+  0x05, 0x07,  // USAGE_PAGE (Keyboard)
+  0x19, 0x27,  // USAGE_MINIMUM (39)
+  0x29, 0x4F,  // USAGE_MAXIMUM (79)
+  0x81, 0x02,  // INPUT (Data,Var,Abs)
+  0xc0         // END
 };
 
 // Global state variables
@@ -131,7 +131,7 @@ VL53L0X tof2;
 PCA9546 MP(0x70);  // I2C Multiplexer address
 SystemStatus system_status = { false, false, false, false, 0, 0 };
 NKROReport nkro_report = { 0 };
-KeyState key_states[256] = {0};
+KeyState key_states[256] = { 0 };
 
 
 void setup() {
@@ -155,6 +155,7 @@ bool initializeHardware() {
   pinMode(LED_1, OUTPUT);
   pinMode(LED_2, OUTPUT);
   pinMode(LED_3, OUTPUT);
+  pinMode(1, INPUT);
 
   // Initialize I2C multiplexer
   if (!MP.begin()) {
@@ -228,49 +229,49 @@ uint8_t calculateHIDKeyCode(uint8_t i) {
 }
 
 void setKey(uint8_t key, uint8_t source) {
-    uint32_t current_time = millis();
-    KeyState* state = &key_states[key];
-    
-    // Basic debouncing
-    if (current_time - state->last_change < DEBOUNCE_TIME_MS) {
-        return;
+  uint32_t current_time = millis();
+  KeyState* state = &key_states[key];
+
+  // Basic debouncing
+  if (current_time - state->last_change < DEBOUNCE_TIME_MS) {
+    return;
+  }
+
+  // Only set key if it's not already pressed or comes from same source
+  if (!state->is_pressed || state->source == source) {
+    if (key >= 0xE0 && key <= 0xE7) {
+      nkro_report.modifiers |= (1 << (key - 0xE0));
+    } else {
+      nkro_report.keys[key / 8] |= (1 << (key % 8));
     }
-    
-    // Only set key if it's not already pressed or comes from same source
-    if (!state->is_pressed || state->source == source) {
-        if (key >= 0xE0 && key <= 0xE7) {
-            nkro_report.modifiers |= (1 << (key - 0xE0));
-        } else {
-            nkro_report.keys[key / 8] |= (1 << (key % 8));
-        }
-        
-        state->is_pressed = true;
-        state->last_change = current_time;
-        state->source = source;
-        
-        #ifdef DEBUG
-        const char* source_str = (source == 0) ? "Cap" : "ToF";
-        DEBUG_PRINTF("Key %s pressed: 0x%02X\n", source_str, key);
-        DEBUG_PRINTF("Modifier state: 0x%02X\n", nkro_report.modifiers);
-        #endif
-    }
+
+    state->is_pressed = true;
+    state->last_change = current_time;
+    state->source = source;
+
+#ifdef DEBUG
+    const char* source_str = (source == 0) ? "Cap" : "ToF";
+    DEBUG_PRINTF("Key %s pressed: 0x%02X\n", source_str, key);
+    DEBUG_PRINTF("Modifier state: 0x%02X\n", nkro_report.modifiers);
+#endif
+  }
 }
 
 // Function to clear a key in the NKRO report
 void clearKey(uint8_t key, uint8_t source) {
-    KeyState* state = &key_states[key];
-    
-    // Only clear if this source owns the key
-    if (state->is_pressed && state->source == source) {
-        if (key >= 0xE0 && key <= 0xE7) {
-            nkro_report.modifiers &= ~(1 << (key - 0xE0));
-        } else {
-            nkro_report.keys[key / 8] &= ~(1 << (key % 8));
-        }
-        
-        state->is_pressed = false;
-        state->last_change = millis();
+  KeyState* state = &key_states[key];
+
+  // Only clear if this source owns the key
+  if (state->is_pressed && state->source == source) {
+    if (key >= 0xE0 && key <= 0xE7) {
+      nkro_report.modifiers &= ~(1 << (key - 0xE0));
+    } else {
+      nkro_report.keys[key / 8] &= ~(1 << (key % 8));
     }
+
+    state->is_pressed = false;
+    state->last_change = millis();
+  }
 }
 
 // Function to clear all keys
@@ -280,120 +281,83 @@ void clearAllKeys() {
 }
 
 void process_hid() {
-    static uint32_t last_report_time = 0;
-    const uint32_t REPORT_INTERVAL_MS = 1;
+  static uint32_t last_report_time = 0;
+  const uint32_t REPORT_INTERVAL_MS = 1;
 
-    // Safely read touch sensors
-    uint32_t touched1 = 0, touched2 = 0;
+  // Safely read touch sensors
+  uint32_t touched1 = 0, touched2 = 0;
 
-    if (system_status.cap1_ready && switchI2CChannel(0)) {
-        touched1 = cap1.touched();
+  if (system_status.cap1_ready && switchI2CChannel(0)) {
+    touched1 = cap1.touched();
+  }
+
+  if (system_status.cap2_ready && switchI2CChannel(1)) {
+    touched2 = cap2.touched();
+  }
+
+  currtouched = touched1 | (touched2 << 12);
+
+  // Process touch inputs - don't clear previous states
+  bool anyKeyPressed = false;
+
+  for (uint8_t i = 0; i < TOUCH_CHANNELS; i++) {
+    uint8_t keycode = calculateHIDKeyCode(i);
+    if (currtouched & (1 << i)) {
+      setKey(keycode, 0);  // 0 = cap sensor source
+      anyKeyPressed = true;
+    } else if (lasttouched & (1 << i)) {
+      clearKey(keycode, 0);
     }
+  }
 
-    if (system_status.cap2_ready && switchI2CChannel(1)) {
-        touched2 = cap2.touched();
-    }
+  // Update LEDs based on touch state
+  updateLEDs(currtouched);
 
-    currtouched = touched1 | (touched2 << 12);
+  lasttouched = currtouched;
 
-    // Process touch inputs - don't clear previous states
-    bool anyKeyPressed = false;
-    
-    for (uint8_t i = 0; i < TOUCH_CHANNELS; i++) {
-        uint8_t keycode = calculateHIDKeyCode(i);
-        if (currtouched & (1 << i)) {
-            setKey(keycode, 0);  // 0 = cap sensor source
-            anyKeyPressed = true;
-        } else if (lasttouched & (1 << i)) {
-            clearKey(keycode, 0);
-        }
-    }
-
-    // Update LEDs based on touch state
-    updateLEDs(currtouched);
-
-    lasttouched = currtouched;
-
-    // Handle USB wake-up
-    if (TinyUSBDevice.suspended() && anyKeyPressed) {
-        TinyUSBDevice.remoteWakeup();
-    }
+  // Handle USB wake-up
+  if (TinyUSBDevice.suspended() && anyKeyPressed) {
+    TinyUSBDevice.remoteWakeup();
+  }
 }
 
 
 void process_tof_hid() {
-    static uint32_t last_sample_time = 0;
-    static uint8_t last_tof1_keycode = 0;
-    static uint8_t last_tof2_keycode = 0;
-    uint32_t current_time = millis();
-   
-    // Rate limit ToF sampling
-    if (current_time - last_sample_time < TOF_SAMPLE_RATE_MS) {
-        return;
-    }
-    last_sample_time = current_time;
+  static uint32_t last_time = 0;
+  static uint8_t last_codes[2] = {0, 0};
+  if (millis() - last_time < TOF_SAMPLE_RATE_MS) return;
+  last_time = millis();
 
-    // Process ToF1
-    if (system_status.tof1_ready && switchI2CChannel(2)) {
-        uint16_t distance = tof1.readRangeContinuousMillimeters();
-        if (!tof1.timeoutOccurred()) {
-            digitalWrite(LED_3, LOW);
-            bool key_detected = false;
-            uint8_t detected_keycode = 0;
-
-            // First clear any existing key
-            if (last_tof1_keycode != 0) {
-                clearKey(last_tof1_keycode, 1);
-                last_tof1_keycode = 0;
-            }
-
-            // Then check for and set new key
-            for (uint8_t i = 0; i < TOF_MAPPING_COUNT; i++) {
-                if (distance >= TOF_MAPPINGS[i].distance_min &&
-                    distance < TOF_MAPPINGS[i].distance_max) {
-                    detected_keycode = TOF_MAPPINGS[i].keycode;
-                    setKey(detected_keycode, 1);
-                    digitalWrite(LED_3, HIGH);
-                    last_tof1_keycode = detected_keycode;
-                    key_detected = true;
-                    break;
-                }
-            }
-        } else {
-            DEBUG_PRINT("ToF1 timeout");
+  // Process both ToF sensors
+  for (uint8_t tof_idx = 0; tof_idx < 2; tof_idx++) {
+    if ((!tof_idx && system_status.tof1_ready && switchI2CChannel(2)) || 
+        (tof_idx && system_status.tof2_ready && switchI2CChannel(3))) {
+      uint16_t distance = (tof_idx ? tof2 : tof1).readRangeContinuousMillimeters();
+      if (!(tof_idx ? tof2 : tof1).timeoutOccurred()) {
+        digitalWrite(tof_idx ? LED_2 : LED_3, LOW);
+        uint8_t detected_code = 0;
+        
+        // Find matching distance range
+        for (uint8_t i = 0; i < TOF_MAPPING_COUNT && !detected_code; i++) {
+          if (distance >= TOF_MAPPINGS[i].distance_min && distance < TOF_MAPPINGS[i].distance_max) {
+            detected_code = TOF_MAPPINGS[i].keycode;
+          }
         }
-    }
 
-    // Process ToF2 - Using exactly same mapping as ToF1
-    if (system_status.tof2_ready && switchI2CChannel(3)) {
-        uint16_t distance = tof2.readRangeContinuousMillimeters();
-        if (!tof2.timeoutOccurred()) {
-            digitalWrite(LED_2, LOW);
-            bool key_detected = false;
-            uint8_t detected_keycode = 0;
-
-            // First clear any existing key
-            if (last_tof2_keycode != 0) {
-                clearKey(last_tof2_keycode, 2);
-                last_tof2_keycode = 0;
-            }
-
-            // Then check for and set new key
-            for (uint8_t i = 0; i < TOF_MAPPING_COUNT; i++) {
-                if (distance >= TOF_MAPPINGS[i].distance_min &&
-                    distance < TOF_MAPPINGS[i].distance_max) {
-                    detected_keycode = TOF_MAPPINGS[i].keycode;
-                    setKey(detected_keycode, 2);
-                    digitalWrite(LED_2, HIGH);
-                    last_tof2_keycode = detected_keycode;
-                    key_detected = true;
-                    break;
-                }
-            }
-        } else {
-            DEBUG_PRINT("ToF2 timeout");
+        // Update key state if changed
+        if (detected_code != last_codes[tof_idx]) {
+          if (last_codes[tof_idx]) clearKey(last_codes[tof_idx], tof_idx + 1);
+          if (detected_code) {
+            setKey(detected_code, tof_idx + 1);
+            digitalWrite(tof_idx ? LED_2 : LED_3, HIGH);
+          }
+          last_codes[tof_idx] = detected_code;
         }
+      } else {
+        DEBUG_PRINT(tof_idx ? "ToF2 timeout" : "ToF1 timeout");
+      }
     }
+  }
 }
 
 
@@ -409,33 +373,32 @@ void clearLEDs() {
 }
 
 void loop() {
-    static uint32_t last_report_time = 0;
-    const uint32_t REPORT_INTERVAL_MS = 1;
-    
-    if (!TinyUSBDevice.mounted()) {
-        return;
-    }
+  static uint32_t last_report_time = 0;
+  const uint32_t REPORT_INTERVAL_MS = 1;
 
-    // Process inputs
-    process_hid();
-    process_tof_hid();
+  if (!TinyUSBDevice.mounted()) {
+    return;
+  }
+
+  // Process inputs
+  process_hid();
+  process_tof_hid();
 
   
 
-    // Send HID report at regular intervals - only one place
-    uint32_t current_time = millis();
-    if (usb_hid.ready() && system_status.usb_ready &&
-        current_time - last_report_time >= REPORT_INTERVAL_MS) {
-        bool success = usb_hid.sendReport(REPORT_ID, &nkro_report, sizeof(NKROReport));
-        #ifdef DEBUG
-        if (!success) {
-            DEBUG_PRINT("HID Report failed to send\n");
-        }
-        #endif
-        last_report_time = current_time;
+  // Send HID report at regular intervals - only one place
+  uint32_t current_time = millis();
+  if (usb_hid.ready() && system_status.usb_ready && current_time - last_report_time >= REPORT_INTERVAL_MS) {
+    bool success = usb_hid.sendReport(REPORT_ID, &nkro_report, sizeof(NKROReport));
+#ifdef DEBUG
+    if (!success) {
+      DEBUG_PRINT("HID Report failed to send\n");
     }
+#endif
+    last_report_time = current_time;
+  }
 
-    #ifdef TINYUSB_NEED_POLLING_TASK
-    TinyUSBDevice.task();
-    #endif
+#ifdef TINYUSB_NEED_POLLING_TASK
+  TinyUSBDevice.task();
+#endif
 }
