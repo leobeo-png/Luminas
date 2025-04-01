@@ -19,7 +19,7 @@
 const uint16_t TOF_MIN_DISTANCE = 100;
 const uint16_t TOF_MAX_DISTANCE = 340;
 const uint32_t DEBOUNCE_TIME_MS = 5;
-const uint32_t TOF_SAMPLE_RATE_MS = 1;
+const uint32_t TOF_SAMPLE_RATE_MS = 5;
 const uint16_t TOF_DIFFERENCE = 40;
 const uint8_t NKRO_REPORT_SIZE = 10;  // 80 bits
 const uint8_t REPORT_ID = 1;
@@ -124,8 +124,8 @@ uint32_t lasttouched = 0;
 uint32_t currtouched = 0;
 
 Adafruit_USBD_HID usb_hid;
-Adafruit_MPR121 cap1 = Adafruit_MPR121();
-Adafruit_MPR121 cap2 = Adafruit_MPR121();
+MPR121_LowLatency cap1 = MPR121_LowLatency();
+MPR121_LowLatency cap2 = MPR121_LowLatency();
 VL53L0X tof1;
 VL53L0X tof2;
 PCA9546 MP(0x70);  // I2C Multiplexer address
@@ -137,7 +137,8 @@ KeyState key_states[256] = { 0 };
 void setup() {
   //Serial.begin(9600);
   Wire.begin();
-  Wire.setClock(620000);
+  Wire.setClock(400000);
+  watchdog_enable(100, 1);
 
   if (!initializeHardware()) {
     DEBUG_PRINT(F("Hardware initialization failed. System entering safe mode."));
@@ -198,7 +199,7 @@ bool initializeHardware() {
     TinyUSBDevice.begin(0);
   }
   usb_hid.setBootProtocol(1);
-  usb_hid.setPollInterval(1);
+  usb_hid.setPollInterval(5); // 5ms polling rate
   usb_hid.setReportDescriptor(desc_hid_report, sizeof(desc_hid_report));
   usb_hid.begin();
   system_status.usb_ready = true;
@@ -207,12 +208,15 @@ bool initializeHardware() {
 }
 
 bool switchI2CChannel(uint8_t channel) {
-  if (!MP.selectChannel(channel)) {
-    DEBUG_PRINT("Channel switch failed");
-    return false;
+  const uint8_t MAX_RETRIES = 3;
+  for (uint8_t retry = 0; retry < MAX_RETRIES; retry++) {
+    if (MP.selectChannel(channel)) {
+      delayMicroseconds(I2C_SWITCH_DELAY_US);
+      return true;
+    }
+    delayMicroseconds(100); // Wait before retry
   }
-  delayMicroseconds(I2C_SWITCH_DELAY_US);
-  return true;
+  return false;
 }
 
 void handleErrors(const char* error_message) {
@@ -375,7 +379,7 @@ void clearLEDs() {
 void loop() {
   static uint32_t last_report_time = 0;
   const uint32_t REPORT_INTERVAL_MS = 1;
-
+  watchdog_update();
   if (!TinyUSBDevice.mounted()) {
     return;
   }
