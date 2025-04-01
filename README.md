@@ -1,6 +1,6 @@
-# Chuni-Scuffed
-Chunithm controller development. <br>
-[![Prototype](http://img.youtube.com/vi/CZmXX8uxxB4/0.jpg)](http://www.youtube.com/watch?v=CZmXX8uxxB4 "Chunithm Early Prototype") 
+# Luminas
+Rhythm game controller development. <br>
+[![Prototype](http://img.youtube.com/vi/CZmXX8uxxB4/0.jpg)](http://www.youtube.com/watch?v=CZmXX8uxxB4 "Early Prototype") 
 ---
 ## Components Used:
  - Raspberry Pi Pico
@@ -17,3 +17,4 @@ Chunithm controller development. <br>
 --- 
 ## What I Learnt so Far 
  - HID (descriptors, how NKRO works)
+ - PCB schematic designing
