@@ -1,6 +1,6 @@
 # Luminas
 Rhythm game controller development. <br>
-[![Prototype](http://img.youtube.com/vi/vNHZUSEBsMY/0.jpg)](https://www.youtube.com/watch?v=vNHZUSEBsMY "Early Prototype") 
+[Video Demo](https://www.youtube.com/watch?v=vNHZUSEBsMY "Early Prototype")
 ---
 ## Components Used:
  - Raspberry Pi Pico
