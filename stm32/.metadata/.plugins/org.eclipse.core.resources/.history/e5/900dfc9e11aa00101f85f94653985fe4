@@ -1,0 +1,289 @@
+/*
+* sensor_detection.c (Optimized with VL53L0X - Non-blocking)
+*
+* Created on: Oct 13, 2025
+* Author: leoar
+*/
+
+#include "sensor_detection.h"
+#include "tca9548.h"
+
+#include <string.h>
+
+#define TOF_POLL_MS 5  // Increased from 5ms to 10ms for stability
+#define TOF_CHANNEL_SWITCH_DELAY_MS 1  // Delay between channel switch and read
+#define DEBOUNCE_TIME_MS 1
+#define NKRO_REPORT_SIZE 16
+#define TOUCH_CHANNELS 36
+#define REPORT_INTERVAL_MS 0  // 1ms = 1000Hz polling rate
+
+// Key state tracking (packed for better cache usage)
+typedef struct {
+    uint32_t last_change;
+    uint8_t source;  // 0 = cap sensor, 1+ = other sources
+    bool is_pressed;
+} KeyState;
+
+// NKRO Report structure
+typedef struct {
+    uint8_t modifiers;              // Modifier keys
+    uint8_t keys[NKRO_REPORT_SIZE - 2];  // Bitmap of keys
+} NKROReport;
+
+// ToF sensor state machine
+typedef enum {
+    TOF_IDLE,
+    TOF_SWITCHING_CHANNEL,
+    TOF_READING
+} ToFState;
+
+typedef struct {
+    ToFState state;
+    uint8_t current_sensor;
+    uint32_t switch_time;
+} ToFStateMachine;
+
+// Global variables
+const uint16_t THRESHOLDS[5] = { 100, 200, 300, 400, 500, 600};
+static uint8_t lastToFKeys[2] = {0, 0};
+static uint64_t lastTouched = 0;
+static NKROReport nkro_report = {0};
+static KeyState key_states[256] = {0};
+static uint32_t last_report_time = 0;
+static ToFStateMachine tof_sm = {TOF_IDLE, 0, 0};
+
+MPR121_t cap1;
+MPR121_t cap2;
+MPR121_t cap3;
+TCA9548A_HandleTypeDef tca9548;
+
+static const uint8_t keycode_map[TOUCH_CHANNELS] = {
+    0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25,   // '1'-'7'
+    0x3A, 0x3B, 0x3C, 0x28,                           // F1, F2, F3, Enter
+    0x26, 0x27, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,  // 9-H
+    0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13,              // I-P
+    0x14, 0x15, 0x16, 0x17, 0x18, 0x19                           // Q-V
+};
+
+static const uint8_t tof_keycodes[6] = {
+    0x34, 0x35, 0x36, 0x37, 0x38, 0x39
+};
+
+static inline uint8_t mapKeyCode(uint8_t i) {
+    return (i < TOUCH_CHANNELS) ? keycode_map[i] + 8 : 0; //shifted by 8 because for some reason it's offset is 8.
+}
+
+uint8_t mapDistance(uint16_t d) {
+    if (d < 100 || d >= 600) return 0;
+    for (uint8_t i = 0; i < 6; i++) {
+        if (d < THRESHOLDS[i]) return tof_keycodes[i];
+    }
+    return 0;
+}
+
+static void setKey(uint8_t key, uint8_t source, uint32_t current_time) {
+    KeyState* state = &key_states[key];
+
+    // Basic debouncing
+    if (current_time - state->last_change < DEBOUNCE_TIME_MS) {
+        return;
+    }
+
+    // Only set key if it's not already pressed or comes from same source
+    if (!state->is_pressed || state->source == source) {
+        if (key >= 0xE0 && key <= 0xE7) {
+            // Modifier key
+            nkro_report.modifiers |= (1 << (key - 0xE0));
+        } else {
+            // Regular key - calculate byte and bit position
+            uint8_t byte_index = key >> 3;
+            uint8_t bit_index = key & 0x07;
+            if (byte_index < (NKRO_REPORT_SIZE - 2)) {
+                nkro_report.keys[byte_index] |= (1 << bit_index);
+            }
+        }
+
+        state->is_pressed = true;
+        state->last_change = current_time;
+        state->source = source;
+    }
+}
+
+static void clearKey(uint8_t key, uint8_t source, uint32_t current_time) {
+    KeyState* state = &key_states[key];
+
+    // Only clear if this source owns the key
+    if (state->is_pressed && state->source == source) {
+        if (key >= 0xE0 && key <= 0xE7) {
+            // Modifier key
+            nkro_report.modifiers &= ~(1 << (key - 0xE0));
+        } else {
+            // Regular key
+            uint8_t byte_index = key >> 3;
+            uint8_t bit_index = key & 0x07;
+            if (byte_index < (NKRO_REPORT_SIZE - 2)) {
+                nkro_report.keys[byte_index] &= ~(1 << bit_index);
+            }
+        }
+
+        state->is_pressed = false;
+        state->last_change = current_time;
+    }
+}
+
+// Initialize the sensor system
+void initSensorDetection(void) {
+    // Clear all states
+    memset(&nkro_report, 0, sizeof(NKROReport));
+    memset(key_states, 0, sizeof(key_states));
+
+    lastTouched = 0;
+    last_report_time = 0;
+
+    // Initialize ToF state machine
+    tof_sm.state = TOF_IDLE;
+    tof_sm.current_sensor = 0;
+    tof_sm.switch_time = 0;
+}
+
+void processTouchSensors(void) {
+    uint64_t currentTouched = (uint64_t)MPR121_touched(&cap1)
+                            | ((uint64_t)MPR121_touched(&cap2) << 12)
+                            | ((uint64_t)MPR121_touched(&cap3) << 24);
+
+    // Early exit if no change
+    if (currentTouched == lastTouched) {
+        return;
+    }
+
+    uint64_t changed = currentTouched ^ lastTouched;
+    uint32_t current_time = HAL_GetTick();
+
+    // Process only changed channels
+    for (uint8_t i = 0; i < TOUCH_CHANNELS; i++) {
+        uint64_t bit = (1ULL << i);
+
+        if (changed & bit) {
+            uint8_t keycode = mapKeyCode(i);
+
+            if (currentTouched & bit) {
+                setKey(keycode, 0, current_time);
+            } else {
+                clearKey(keycode, 0, current_time);
+            }
+        }
+    }
+
+    lastTouched = currentTouched;
+
+    // Update LED indicator
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13,
+                      currentTouched ? GPIO_PIN_RESET : GPIO_PIN_SET);
+}
+
+void sendHIDReport(void) {
+    uint32_t current_time = HAL_GetTick();
+
+    // Rate limiting
+    if (current_time - last_report_time < REPORT_INTERVAL_MS) {
+        return;
+    }
+
+    USBD_CUSTOM_HID_HandleTypeDef *hhid =
+        (USBD_CUSTOM_HID_HandleTypeDef *)hUsbDeviceFS.pClassData;
+
+    if (hhid != NULL && hhid->state == CUSTOM_HID_IDLE) {
+        USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS,
+                                   (uint8_t*)&nkro_report,
+                                   sizeof(NKROReport));
+        last_report_time = current_time;
+    }
+}
+
+// Non-blocking ToF sensor processing with state machine
+void processToFSensors(void) {
+    static uint32_t lastTofTime = 0;
+    uint32_t now = HAL_GetTick();
+
+    // Rate limiting - only process every TOF_POLL_MS
+    if (now - lastTofTime < TOF_POLL_MS) return;
+
+    switch (tof_sm.state) {
+        case TOF_IDLE:
+            // Start processing first sensor
+            tof_sm.current_sensor = 0;
+            tof_sm.state = TOF_SWITCHING_CHANNEL;
+            // Fall through to immediately switch channel
+
+        case TOF_SWITCHING_CHANNEL:
+            // Switch to the current sensor's channel
+            if (TCA_SelectChannel(&tca9548, tof_sm.current_sensor) != HAL_OK) {
+                // If channel selection fails, clear key and move to next sensor
+                if (lastToFKeys[tof_sm.current_sensor]) {
+                    clearKey(lastToFKeys[tof_sm.current_sensor], 1 + tof_sm.current_sensor, now);
+                    lastToFKeys[tof_sm.current_sensor] = 0;
+                }
+
+                // Move to next sensor or finish
+                if (++tof_sm.current_sensor >= 2) {
+                    tof_sm.state = TOF_IDLE;
+                    lastTofTime = now;
+                }
+                return;
+            }
+
+            // Record when we switched and move to reading state
+            tof_sm.switch_time = now;
+            tof_sm.state = TOF_READING;
+            return;
+
+        case TOF_READING:
+            // Wait for channel to stabilize (non-blocking check)
+            if (now - tof_sm.switch_time < TOF_CHANNEL_SWITCH_DELAY_MS) {
+                return;  // Not ready yet, come back later
+            }
+
+            // Read distance from the currently selected sensor
+            uint16_t d = readRangeContinuousMillimeters();
+            uint8_t sensor_idx = tof_sm.current_sensor;
+
+            // Check if reading was valid (no timeout)
+            if (!timeoutOccurred()) {
+                uint8_t key = mapDistance(d);
+
+                // Check if key state changed
+                if (key != lastToFKeys[sensor_idx]) {
+                    // Clear old key if it was set
+                    if (lastToFKeys[sensor_idx]) {
+                        clearKey(lastToFKeys[sensor_idx], 1 + sensor_idx, now);
+                    }
+                    // Set new key if it's non-zero
+                    if (key) {
+                        setKey(key, 1 + sensor_idx, now);
+                    }
+                    lastToFKeys[sensor_idx] = key;
+                }
+            } else {
+                // Timeout occurred - clear any active key for this sensor
+                if (lastToFKeys[sensor_idx]) {
+                    clearKey(lastToFKeys[sensor_idx], 1 + sensor_idx, now);
+                    lastToFKeys[sensor_idx] = 0;
+                }
+            }
+
+            // Move to next sensor or finish
+            if (++tof_sm.current_sensor >= 2) {
+                tof_sm.state = TOF_IDLE;
+                lastTofTime = now;  // Update timing after completing all sensors
+            } else {
+                tof_sm.state = TOF_SWITCHING_CHANNEL;  // Process next sensor
+            }
+            return;
+    }
+}
+
+void updateSensorDetection(void) {
+    processTouchSensors();
+    processToFSensors();  // Now non-blocking!
+    sendHIDReport();
+}

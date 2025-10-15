@@ -1,0 +1,38 @@
+/*
+* sensor_detection.h
+*
+* Created on: Oct 13, 2025
+* Author: leoar
+*/
+
+#ifndef SENSOR_DETECTION_H_
+#define SENSOR_DETECTION_H_
+
+#include "main.h"
+#include "usbd_customhid.h"
+#include "mpr121.h"
+#include "tca9548.h"
+#include "vl53l0x_api.h"
+#include "vl53l0x_platform.h"
+#include <stdint.h>
+#include <stdbool.h>
+
+// External USB device handle (defined in usb_device.c or usbd_conf.c)
+extern USBD_HandleTypeDef hUsbDeviceFS;
+
+// External MPR121 instance
+extern MPR121_t cap1;
+extern MPR121_t cap2;
+extern MPR121_t cap3;
+extern TCA9548A_HandleTypeDef tca9548;
+extern statInfo_t_VL53L0X distanceStr;
+
+// Sensor detection public functions
+void initSensorDetection(void);
+void configureToFSensorPerformance(VL53L0X_DEV device);
+void processTouchSensors(void);
+void sendHIDReport(void);
+void updateSensorDetection(void);
+void processToFSensors(void);
+
+#endif /* SENSOR_DETECTION_H_ */

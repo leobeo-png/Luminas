@@ -1,0 +1,30 @@
+/*
+* sensor_detection.h
+*
+* Created on: Oct 13, 2025
+* Author: leoar
+*/
+
+#ifndef SENSOR_DETECTION_H_
+#define SENSOR_DETECTION_H_
+
+#include "main.h"
+#include "usbd_customhid.h"
+#include "mpr121.h"
+#include <stdint.h>
+#include <stdbool.h>
+
+// External USB device handle (defined in usb_device.c or usbd_conf.c)
+extern USBD_HandleTypeDef hUsbDeviceFS;
+
+// External MPR121 instance
+extern MPR121_t cap1;
+extern MPR121_t cap2;
+
+// Sensor detection public functions
+void initSensorDetection(void);
+void processTouchSensors(void);
+void sendHIDReport(void);
+void updateSensorDetection(void);
+
+#endif /* SENSOR_DETECTION_H_ */

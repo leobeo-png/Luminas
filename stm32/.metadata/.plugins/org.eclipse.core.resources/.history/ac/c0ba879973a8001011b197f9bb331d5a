@@ -1,0 +1,30 @@
+/*
+ * sensor_detection.h
+ *
+ *  Created on: Oct 13, 2025
+ *      Author: leoar
+ */
+
+#ifndef INC_SENSOR_DETECTION_H_
+#define INC_SENSOR_DETECTION_H_
+#include "mpr121.h"
+#include "usb_hid_keyboard.h"
+
+extern USBD_HandleTypeDef hUsbDeviceFS;
+extern MPR121_t cap1;
+
+extern const uint8_t KEYCODES[6];  // F1-F6
+extern const uint16_t THRESHOLDS[5];
+extern const uint8_t I2C_DELAY_US;
+extern const uint8_t TOF_POLL_MS;
+
+extern uint64_t lastTouched;
+extern uint8_t nkroReport[16];
+
+uint8_t mapKeyCode(uint8_t i);
+
+void processTouchSensors(void);
+
+//void processToFSensors(void);
+
+#endif /* INC_SENSOR_DETECTION_H_ */

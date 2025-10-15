@@ -1,0 +1,13 @@
+/*
+ * vl53l0x_platform.h
+ *
+ *  Created on: Oct 14, 2025
+ *      Author: leoar
+ */
+
+#ifndef BSP_COMPONENTS_VL53L0X_VL53L0X_PLATFORM_H_
+#define BSP_COMPONENTS_VL53L0X_VL53L0X_PLATFORM_H_
+
+
+
+#endif /* BSP_COMPONENTS_VL53L0X_VL53L0X_PLATFORM_H_ */

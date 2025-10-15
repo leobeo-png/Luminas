@@ -1,0 +1,247 @@
+/*
+* sensor_detection.c (Optimized with VL53L0X)
+*
+* Created on: Oct 13, 2025
+* Author: leoar
+*/
+
+#include "sensor_detection.h"
+#include "tca9548.h"
+
+#include <string.h>
+
+#define I2C_DELAY_US 100
+#define TOF_POLL_MS 5
+#define DEBOUNCE_TIME_MS 5
+#define NKRO_REPORT_SIZE 16
+#define TOUCH_CHANNELS 36
+#define REPORT_INTERVAL_MS 1  // 1ms = 1000Hz polling rate
+
+// Key state tracking (packed for better cache usage)
+typedef struct {
+    uint32_t last_change;
+    uint8_t source;  // 0 = cap sensor, 1+ = other sources
+    bool is_pressed;
+} KeyState;
+
+// NKRO Report structure
+typedef struct {
+    uint8_t modifiers;              // Modifier keys
+    uint8_t keys[NKRO_REPORT_SIZE - 2];  // Bitmap of keys
+} NKROReport;
+
+// Global variables
+const uint16_t THRESHOLDS[5] = { 100, 200, 300, 400, 500 };
+static uint8_t lastToFKeys[2] = {0, 0};
+static uint64_t lastTouched = 0;
+static NKROReport nkro_report = {0};
+static KeyState key_states[256] = {0};
+static uint32_t last_report_time = 0;
+
+MPR121_t cap1;
+MPR121_t cap2;
+MPR121_t cap3;
+TCA9548A_HandleTypeDef tca9548;
+
+extern VL53L0X_Dev sensor_ch0;
+extern VL53L0X_Dev sensor_ch1;
+
+static const uint8_t keycode_map[TOUCH_CHANNELS] = {
+    0x1E, 0x1F, 0x20, 0x21, 0x22, 0x23, 0x24, 0x25,   // '1'-'7'
+    0x3A, 0x3B, 0x3C, 0x28,                           // F1, F2, F3, Enter
+    0x26, 0x27, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A, 0x0B,  // 9-H
+    0x0C, 0x0D, 0x0E, 0x0F, 0x10, 0x11, 0x12, 0x13,              // I-P
+    0x14, 0x15, 0x16, 0x17, 0x18, 0x19                           // Q-V
+};
+
+static const uint8_t tof_keycodes[6] = {
+    0x2f, 0x30, 0x33, 0x34, 0x36, 0x37 // [, ], ;, ', <, >
+};
+
+static inline uint8_t mapKeyCode(uint8_t i) {
+    return (i < TOUCH_CHANNELS) ? keycode_map[i] + 8 : 0; //shifted by 8 because for some reason it's offset is 8.
+}
+
+uint8_t mapDistance(uint16_t d) {
+    if (d < 100 || d >= 600) return 0;
+    for (uint8_t i = 0; i < 6; i++) {
+        if (d < THRESHOLDS[i]) return tof_keycodes[i];
+    }
+    return 0;
+}
+
+static void setKey(uint8_t key, uint8_t source, uint32_t current_time) {
+    KeyState* state = &key_states[key];
+
+    // Basic debouncing
+    if (current_time - state->last_change < DEBOUNCE_TIME_MS) {
+        return;
+    }
+
+    // Only set key if it's not already pressed or comes from same source
+    if (!state->is_pressed || state->source == source) {
+        if (key >= 0xE0 && key <= 0xE7) {
+            // Modifier key
+            nkro_report.modifiers |= (1 << (key - 0xE0));
+        } else {
+            // Regular key - calculate byte and bit position
+            uint8_t byte_index = key >> 3;
+            uint8_t bit_index = key & 0x07;
+            if (byte_index < (NKRO_REPORT_SIZE - 2)) {
+                nkro_report.keys[byte_index] |= (1 << bit_index);
+            }
+        }
+
+        state->is_pressed = true;
+        state->last_change = current_time;
+        state->source = source;
+    }
+}
+
+static void clearKey(uint8_t key, uint8_t source, uint32_t current_time) {
+    KeyState* state = &key_states[key];
+
+    // Only clear if this source owns the key
+    if (state->is_pressed && state->source == source) {
+        if (key >= 0xE0 && key <= 0xE7) {
+            // Modifier key
+            nkro_report.modifiers &= ~(1 << (key - 0xE0));
+        } else {
+            // Regular key
+            uint8_t byte_index = key >> 3;
+            uint8_t bit_index = key & 0x07;
+            if (byte_index < (NKRO_REPORT_SIZE - 2)) {
+                nkro_report.keys[byte_index] &= ~(1 << bit_index);
+            }
+        }
+
+        state->is_pressed = false;
+        state->last_change = current_time;
+    }
+}
+
+// Initialize the sensor system
+void initSensorDetection(void) {
+    // Clear all states
+    memset(&nkro_report, 0, sizeof(NKROReport));
+    memset(key_states, 0, sizeof(key_states));
+
+    lastTouched = 0;
+    last_report_time = 0;
+}
+
+void processTouchSensors(void) {
+    uint64_t currentTouched = (uint64_t)MPR121_touched(&cap1)
+                            | ((uint64_t)MPR121_touched(&cap2) << 12)
+                            | ((uint64_t)MPR121_touched(&cap3) << 24);
+
+    // Early exit if no change
+    if (currentTouched == lastTouched) {
+        return;
+    }
+
+    uint64_t changed = currentTouched ^ lastTouched;
+    uint32_t current_time = HAL_GetTick();
+
+    // Process only changed channels
+    for (uint8_t i = 0; i < TOUCH_CHANNELS; i++) {
+        uint64_t bit = (1ULL << i);
+
+        if (changed & bit) {
+            uint8_t keycode = mapKeyCode(i);
+
+            if (currentTouched & bit) {
+                setKey(keycode, 0, current_time);
+            } else {
+                clearKey(keycode, 0, current_time);
+            }
+        }
+    }
+
+    lastTouched = currentTouched;
+
+    // Update LED indicator
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13,
+                      currentTouched ? GPIO_PIN_RESET : GPIO_PIN_SET);
+}
+
+void sendHIDReport(void) {
+    uint32_t current_time = HAL_GetTick();
+
+    // Rate limiting
+    if (current_time - last_report_time < REPORT_INTERVAL_MS) {
+        return;
+    }
+
+    USBD_CUSTOM_HID_HandleTypeDef *hhid =
+        (USBD_CUSTOM_HID_HandleTypeDef *)hUsbDeviceFS.pClassData;
+
+    if (hhid != NULL && hhid->state == CUSTOM_HID_IDLE) {
+        USBD_CUSTOM_HID_SendReport(&hUsbDeviceFS,
+                                   (uint8_t*)&nkro_report,
+                                   sizeof(NKROReport));
+        last_report_time = current_time;
+    }
+}
+
+//void processToFSensors(void) {
+//    static uint32_t lastTofTime = 0;
+//    uint32_t now = HAL_GetTick();
+//
+//    if (now - lastTofTime < TOF_POLL_MS) return;
+//    lastTofTime = now;
+//
+//    // Array of VL53L0X device handles
+//    VL53L0X_DEV sensors[2] = {Dev_ch0, Dev_ch1};
+//
+//    for (uint8_t i = 0; i < 2; i++) {
+//        uint8_t channel = i; // Channel 0 or 1
+//
+//        // Select the appropriate I2C channel on the multiplexer
+//        if (!TCA_SelectChannel(&tca9548, channel)) {
+//            // Channel selection failed, clear any active key from this sensor
+//            if (lastToFKeys[i]) {
+//                clearKey(lastToFKeys[i], 1 + i, HAL_GetTick());
+//                lastToFKeys[i] = 0;
+//            }
+//            continue;
+//        }
+//
+//        // Read distance measurement
+//        VL53L0X_RangingMeasurementData_t RangingData;
+//        VL53L0X_Error status = VL53L0X_GetRangingMeasurementData(sensors[i], &RangingData);
+//
+//        if (status == VL53L0X_ERROR_NONE && RangingData.RangeStatus == 0) {
+//            // Valid measurement received
+//            uint16_t distance = RangingData.RangeMilliMeter;
+//            uint8_t key = mapDistance(distance);
+//            uint32_t current_time = HAL_GetTick();
+//
+//            if (key != lastToFKeys[i]) {
+//                // Key changed
+//                if (lastToFKeys[i]) {
+//                    clearKey(lastToFKeys[i], 1 + i, current_time);
+//                }
+//                if (key) {
+//                    setKey(key, 1 + i, current_time);
+//                }
+//                lastToFKeys[i] = key;
+//            }
+//
+//            // Clear interrupt for next measurement
+//            VL53L0X_ClearInterruptMask(sensors[i], 0);
+//        } else {
+//            // Measurement error or timeout
+//            if (lastToFKeys[i]) {
+//                clearKey(lastToFKeys[i], 1 + i, HAL_GetTick());
+//                lastToFKeys[i] = 0;
+//            }
+//        }
+//    }
+//}
+
+void updateSensorDetection(void) {
+    processTouchSensors();
+    //processToFSensors();
+    sendHIDReport();
+}

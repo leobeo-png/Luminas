@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="hasShownOverlayPopupBefore" value="true"/>
+	<item key="replaceBarOpen" value="true"/>
+	<list key="searchhistory">
+		<item value="DEBOUNCE_TIME_MS"/>
+		<item value="TOF_CHANNEL_SWITCH_DELAY_MS"/>
+		<item value="TOF_POLL_MS"/>
+		<item value="I2C_DELAY_US"/>
+		<item value="delay"/>
+		<item value="hi2c1"/>
+		<item value="readmulti"/>
+		<item value="REG_IDENTIFICATION_MODEL_ID "/>
+		<item value="address &lt;&lt; 1"/>
+		<item value="HAL_I2C_Master_Transmit"/>
+		<item value="VL53L0X_DEV"/>
+		<item value="vl53l0x_dev"/>
+		<item value="VL53L0X_API"/>
+		<item value="initSensorDetection"/>
+		<item value="InitS"/>
+	</list>
+	<list key="replacehistory">
+		<item value="hi2c2"/>
+		<item value="address"/>
+		<item value="VL53L0X_DEV"/>
+		<item value="VL53L0X_API"/>
+	</list>
+</section>

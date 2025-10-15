@@ -1,0 +1,9 @@
+../Core/Src/tca9548.c:13:19:TCA_Init	1
+../Core/Src/tca9548.c:26:19:TCA_OpenChannel	2
+../Core/Src/tca9548.c:39:19:TCA_CloseChannel	2
+../Core/Src/tca9548.c:52:19:TCA_SelectChannel	2
+../Core/Src/tca9548.c:65:19:TCA_SetMultipleChannels	1
+../Core/Src/tca9548.c:75:19:TCA_OpenAllChannels	1
+../Core/Src/tca9548.c:85:19:TCA_CloseAllChannels	1
+../Core/Src/tca9548.c:95:9:TCA_GetChannelStatus	3
+../Core/Src/tca9548.c:109:9:TCA_GetAllChannelStatus	2

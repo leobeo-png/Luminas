@@ -1,0 +1,9 @@
+../Core/Src/sensor_detection.c:72:23:mapKeyCode	16	static
+../Core/Src/sensor_detection.c:76:9:mapDistance	24	static
+../Core/Src/sensor_detection.c:84:13:setKey	24	static
+../Core/Src/sensor_detection.c:112:13:clearKey	24	static
+../Core/Src/sensor_detection.c:135:6:initSensorDetection	8	static
+../Core/Src/sensor_detection.c:149:6:processTouchSensors	136	static
+../Core/Src/sensor_detection.c:184:6:sendHIDReport	16	static
+../Core/Src/sensor_detection.c:204:6:processToFSensors	16	static
+../Core/Src/sensor_detection.c:285:6:updateSensorDetection	8	static

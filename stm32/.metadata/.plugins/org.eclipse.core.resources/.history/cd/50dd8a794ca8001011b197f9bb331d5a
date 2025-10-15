@@ -1,0 +1,13 @@
+/*
+ * usb_hid_keyboard.h
+ *
+ *  Created on: Oct 13, 2025
+ *      Author: leoar
+ */
+
+#ifndef INC_USB_HID_KEYBOARD_H_
+#define INC_USB_HID_KEYBOARD_H_
+
+
+
+#endif /* INC_USB_HID_KEYBOARD_H_ */

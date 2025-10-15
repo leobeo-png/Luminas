@@ -1,0 +1,117 @@
+/*
+ * tca9548.c
+ *
+ *  Created on: Oct 14, 2025
+ *  Original Author: Bintang Cahya
+ *  https://github.com/Bintang-Cahya/TCA9548A
+ *  Fixed by: leobeo-png
+ */
+
+#include "tca9548.h"
+
+// initialize
+HAL_StatusTypeDef TCA_Init(TCA9548A_HandleTypeDef *_dev_typedef, I2C_HandleTypeDef *_dev_hi2c, uint8_t _dev_addr)
+{
+	// Assign the I2C handle and device address to the device handle structure
+	_dev_typedef->hi2c = _dev_hi2c;
+	_dev_typedef->address = _dev_addr;
+	_dev_typedef->channels = 0; // Initialize channels (if needed)
+
+	// Check if the device is ready for communication
+	// ✅ FIXED: Removed incorrect | 1 bit
+	return HAL_I2C_IsDeviceReady(_dev_typedef->hi2c, _dev_typedef->address << 1, 2, 100);
+}
+
+// open channel
+HAL_StatusTypeDef TCA_OpenChannel(TCA9548A_HandleTypeDef *_dev_typedef, uint8_t _channel)
+{
+	// Validate channel number
+	if (_channel > 7) return HAL_ERROR;
+
+	// Set the specified channel bit in the channels configuration
+	_dev_typedef->channels |= 1 << _channel;
+
+	// Transmit the updated channels configuration to the TCA9548A device
+	return HAL_I2C_Master_Transmit(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100);
+}
+
+// close channel
+HAL_StatusTypeDef TCA_CloseChannel(TCA9548A_HandleTypeDef *_dev_typedef, uint8_t _channel)
+{
+	// Validate channel number
+	if (_channel > 7) return HAL_ERROR;
+
+	// Clear the specified channel bit in the channels configuration
+	_dev_typedef->channels &= ~(1 << _channel);
+
+	// Transmit the updated channels configuration to the TCA9548A device
+	return HAL_I2C_Master_Transmit(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100);
+}
+
+// select channel
+HAL_StatusTypeDef TCA_SelectChannel(TCA9548A_HandleTypeDef *_dev_typedef, uint8_t _channel)
+{
+	// Validate channel number
+	if (_channel > 7) return HAL_ERROR;
+
+	// Set the specified channel bit in the channels configuration
+	_dev_typedef->channels = 1 << _channel;
+
+	// Transmit the updated channels configuration to the TCA9548A device
+	return HAL_I2C_Master_Transmit(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100);
+}
+
+// set the state for multiple channels
+HAL_StatusTypeDef TCA_SetMultipleChannels(TCA9548A_HandleTypeDef *_dev_typedef, uint8_t _state_data)
+{
+	// Move data to channels configuration
+	_dev_typedef->channels = _state_data;
+
+	// Transmit the updated channels configuration to the TCA9548A device
+	return HAL_I2C_Master_Transmit(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100);
+}
+
+// open all the channels
+HAL_StatusTypeDef TCA_OpenAllChannels(TCA9548A_HandleTypeDef *_dev_typedef)
+{
+	// Set all bits to 1
+	_dev_typedef->channels = 0xff;
+
+	// Transmit the updated channels configuration to the TCA9548A device
+	return HAL_I2C_Master_Transmit(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100);
+}
+
+// close all the channels
+HAL_StatusTypeDef TCA_CloseAllChannels(TCA9548A_HandleTypeDef *_dev_typedef)
+{
+	// Set all bits to 0
+	_dev_typedef->channels = 0x00;
+
+	// Transmit the updated channels configuration to the TCA9548A device
+	return HAL_I2C_Master_Transmit(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100);
+}
+
+// get specified channel status
+uint8_t TCA_GetChannelStatus(TCA9548A_HandleTypeDef *_dev_typedef, uint8_t _channel)
+{
+	// Validate channel number
+	if (_channel > 7) return 0;
+
+	// ✅ FIXED: Removed incorrect | 1 bit
+	if (HAL_I2C_Master_Receive(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100) == HAL_OK)
+	{
+		return (_dev_typedef->channels & (1 << _channel)) > 0;
+	}
+	else return 0;
+}
+
+// get all channel status
+uint8_t TCA_GetAllChannelStatus(TCA9548A_HandleTypeDef *_dev_typedef)
+{
+	// ✅ FIXED: Removed incorrect | 1 bit
+	if (HAL_I2C_Master_Receive(_dev_typedef->hi2c, _dev_typedef->address << 1, &_dev_typedef->channels, 1, 100) == HAL_OK)
+	{
+		return _dev_typedef->channels;
+	}
+	else return 0;
+}

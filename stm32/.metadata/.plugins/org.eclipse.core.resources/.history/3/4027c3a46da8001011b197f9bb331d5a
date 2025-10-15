@@ -1,0 +1,24 @@
+/*
+ * sensor_detection.h
+ *
+ *  Created on: Oct 13, 2025
+ *      Author: leoar
+ */
+
+#ifndef INC_SENSOR_DETECTION_H_
+#define INC_SENSOR_DETECTION_H_
+#include "mpr121.h"
+#include "usb_hid_keyboard.h"
+
+uint8_t mapKeyCode(uint8_t i) {
+  if (i < 8) return 0x30 + i;              // '0'-'7'
+  if (i < 12) return 0xC2 + (i - 8);       // F1-F4
+  if (i < 14) return 0x38 + (i - 12);      // '8'-'9'
+  return 0x41 + (i - 14);                  // 'A'-'V'
+}
+
+void processTouchSensors(void);
+
+void processToFSensors(void);
+
+#endif /* INC_SENSOR_DETECTION_H_ */

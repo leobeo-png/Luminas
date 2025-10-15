@@ -1,0 +1,80 @@
+/*
+ * mpr121.c
+ *
+ *  Created on: Sep 20, 2025
+ *      Author: leoar
+ */
+
+#include "mpr121.h"
+#include "stm32f4xx_hal.h"
+
+bool MPR121_begin(MPR121_t *dev, I2C_HandleTypeDef *hi2c, uint8_t addr,
+                  uint8_t touchThresh, uint8_t releaseThresh, bool autoconfig) {
+
+	dev->hi2c = hi2c;
+	dev->i2c_addr = addr;
+	dev->autoconfig = autoconfig;
+
+	if (HAL_I2C_IsDeviceReady(dev->hi2c, dev->i2c_addr, 3, HAL_MAX_DELAY) != HAL_OK) {
+		return false;
+	}
+
+	MPR121_writeRegister(dev, 0x5E, 0x00);
+
+    // Set thresholds
+    MPR121_setThresholds(dev, touchThresh, releaseThresh);
+
+    // Filter and baseline settings (from Adafruit example)
+    MPR121_writeRegister(dev, MPR121_MHDR, 0x01);
+    MPR121_writeRegister(dev, MPR121_NHDR, 0x01);
+    MPR121_writeRegister(dev, MPR121_NCLR, 0x01);
+    MPR121_writeRegister(dev, MPR121_FDLR, 0x00);
+
+    MPR121_writeRegister(dev, MPR121_MHDF, 0x01);
+    MPR121_writeRegister(dev, MPR121_NHDF, 0x01);
+    MPR121_writeRegister(dev, MPR121_NCLF, 0x01);
+    MPR121_writeRegister(dev, MPR121_FDLF, 0x00);
+
+    // Debounce
+    MPR121_writeRegister(dev, MPR121_DEBOUNCE, 0x00);
+
+    // Config registers
+    MPR121_writeRegister(dev, MPR121_CONFIG1, 0x20);
+    MPR121_writeRegister(dev, MPR121_CONFIG2, 0x20);
+
+    // Enable all electrodes
+    MPR121_writeRegister(dev, 0x5E, 0x8F);
+
+    return true;
+}
+
+void MPR121_writeRegister(MPR121_t *dev, uint8_t reg, uint8_t value) {
+    HAL_I2C_Mem_Write(dev->hi2c, dev->i2c_addr, reg, I2C_MEMADD_SIZE_8BIT, &value, 1, HAL_MAX_DELAY);
+}
+
+// Read a single 8-bit register
+uint8_t MPR121_readRegister8(MPR121_t *dev, uint8_t reg) {
+    uint8_t val = 0;
+    HAL_I2C_Mem_Read(dev->hi2c, dev->i2c_addr, reg, I2C_MEMADD_SIZE_8BIT, &val, 1, HAL_MAX_DELAY);
+    return val;
+}
+
+// Read a 16-bit register (little endian)
+uint16_t MPR121_readRegister16(MPR121_t *dev, uint8_t reg) {
+    uint8_t buf[2] = {0};
+    HAL_I2C_Mem_Read(dev->hi2c, dev->i2c_addr, reg, I2C_MEMADD_SIZE_8BIT, buf, 2, HAL_MAX_DELAY);
+    return ((uint16_t)buf[1] << 8) | buf[0];
+}
+
+// Set touch and release thresholds for all electrodes
+void MPR121_setThresholds(MPR121_t *dev, uint8_t touch, uint8_t release) {
+    for (uint8_t i = 0; i < 12; i++) {
+        MPR121_writeRegister(dev, 0x41 + i*2, touch);
+        MPR121_writeRegister(dev, 0x42 + i*2, release);
+    }
+}
+
+// Return 12-bit touched status
+uint16_t MPR121_touched(MPR121_t *dev) {
+    return MPR121_readRegister16(dev, 0x00) & 0x0FFF;  // Only electrodes 0–11
+}

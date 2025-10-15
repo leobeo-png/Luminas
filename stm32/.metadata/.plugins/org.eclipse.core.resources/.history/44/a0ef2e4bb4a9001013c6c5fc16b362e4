@@ -1,0 +1,127 @@
+/*******************************************************************************
+ * VL53L0X Platform Header for STM32
+ *
+ * This header declares the platform-specific functions required by the
+ * VL53L0X API for STM32 microcontrollers.
+ ******************************************************************************/
+
+#ifndef _VL53L0X_PLATFORM_H_
+#define _VL53L0X_PLATFORM_H_
+
+#include "vl53l0x_def.h"
+#include "vl53l0x_device.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
+ * @brief  Writes multiple bytes to the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  pdata: Pointer to data buffer
+ * @param  count: Number of bytes to write
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_WriteMulti(VL53L0X_DEV Dev, uint8_t index, uint8_t *pdata, uint32_t count);
+
+/**
+ * @brief  Reads multiple bytes from the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  pdata: Pointer to data buffer
+ * @param  count: Number of bytes to read
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_ReadMulti(VL53L0X_DEV Dev, uint8_t index, uint8_t *pdata, uint32_t count);
+
+/**
+ * @brief  Writes a single byte to the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  data: Byte to write
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_WrByte(VL53L0X_DEV Dev, uint8_t index, uint8_t data);
+
+/**
+ * @brief  Writes a 16-bit word to the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  data: Word to write
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_WrWord(VL53L0X_DEV Dev, uint8_t index, uint16_t data);
+
+/**
+ * @brief  Writes a 32-bit double word to the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  data: Double word to write
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_WrDWord(VL53L0X_DEV Dev, uint8_t index, uint32_t data);
+
+/**
+ * @brief  Updates a byte by ANDing and ORing with masks
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  AndData: AND mask
+ * @param  OrData: OR mask
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_UpdateByte(VL53L0X_DEV Dev, uint8_t index, uint8_t AndData, uint8_t OrData);
+
+/**
+ * @brief  Reads a single byte from the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  data: Pointer to store read byte
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_RdByte(VL53L0X_DEV Dev, uint8_t index, uint8_t *data);
+
+/**
+ * @brief  Reads a 16-bit word from the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  data: Pointer to store read word
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_RdWord(VL53L0X_DEV Dev, uint8_t index, uint16_t *data);
+
+/**
+ * @brief  Reads a 32-bit double word from the device
+ * @param  Dev: Device handle
+ * @param  index: Register address
+ * @param  data: Pointer to store read double word
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_RdDWord(VL53L0X_DEV Dev, uint8_t index, uint32_t *data);
+
+/**
+ * @brief  Polling delay implementation
+ * @param  Dev: Device handle
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev);
+
+/**
+ * @brief  Lock sequence access (for multi-threading)
+ * @param  Dev: Device handle
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_LockSequenceAccess(VL53L0X_DEV Dev);
+
+/**
+ * @brief  Unlock sequence access (for multi-threading)
+ * @param  Dev: Device handle
+ * @retval VL53L0X_Error status
+ */
+VL53L0X_Error VL53L0X_UnlockSequenceAccess(VL53L0X_DEV Dev);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* _VL53L0X_PLATFORM_H_ */
