@@ -1,4 +1,54 @@
-08:17:28 **** Incremental Build of configuration Debug for project chuni_st ****
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+
+03:10:45 Build Finished. 0 errors, 0 warnings. (took 593ms)
+
+03:10:45 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+03:10:59 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+03:12:26 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+03:12:45 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+03:13:42 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+03:14:24 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+03:16:56 **** Incremental Build of configuration Debug for project chuni_st ****
 make -j16 all 
 arm-none-eabi-gcc "../Core/Src/sensor_detection.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sensor_detection.d" -MT"Core/Src/sensor_detection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sensor_detection.o"
 arm-none-eabi-gcc -o "chuni_st.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ST\workspace\try1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="chuni_st.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
@@ -7,7 +57,70 @@ Finished building target: chuni_st.elf
 arm-none-eabi-size  chuni_st.elf 
 arm-none-eabi-objdump -h -S chuni_st.elf  > "chuni_st.list"
    text	   data	    bss	    dec	    hex	filename
-  42368	    316	   6416	  49100	   bfcc	chuni_st.elf
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+Finished building: chuni_st.list
+ 
+08:53:44 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/sensor_detection.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sensor_detection.d" -MT"Core/Src/sensor_detection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sensor_detection.o"
+arm-none-eabi-gcc -o "chuni_st.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ST\workspace\try1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="chuni_st.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: chuni_st.elf
+ 
+arm-none-eabi-size  chuni_st.elf 
+arm-none-eabi-objdump -h -S chuni_st.elf  > "chuni_st.list"
+   text	   data	    bss	    dec	    hex	filename
+  43268	    316	   4880	  48464	   bd50	chuni_st.elf
+Finished building: default.size.stdout
+ 
+Finished building: chuni_st.list
+ 
+08:58:26 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/sensor_detection.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sensor_detection.d" -MT"Core/Src/sensor_detection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sensor_detection.o"
+arm-none-eabi-gcc -o "chuni_st.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ST\workspace\try1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="chuni_st.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: chuni_st.elf
+ 
+arm-none-eabi-size  chuni_st.elf 
+arm-none-eabi-objdump -h -S chuni_st.elf  > "chuni_st.list"
+   text	   data	    bss	    dec	    hex	filename
+  43268	    316	   4880	  48464	   bd50	chuni_st.elf
+Finished building: default.size.stdout
+ 
+Finished building: chuni_st.list
+ 
+08:59:54 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-size  chuni_st.elf 
+   text	   data	    bss	    dec	    hex	filename
+  43268	    316	   4880	  48464	   bd50	chuni_st.elf
+Finished building: default.size.stdout
+ 
+09:04:53 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/sensor_detection.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sensor_detection.d" -MT"Core/Src/sensor_detection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sensor_detection.o"
+arm-none-eabi-gcc -o "chuni_st.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ST\workspace\try1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="chuni_st.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: chuni_st.elf
+ 
+arm-none-eabi-size  chuni_st.elf 
+arm-none-eabi-objdump -h -S chuni_st.elf  > "chuni_st.list"
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
+Finished building: default.size.stdout
+ 
+Finished building: chuni_st.list
+ 
+09:24:58 **** Incremental Build of configuration Debug for project chuni_st ****
+make -j16 all 
+arm-none-eabi-gcc "../Core/Src/sensor_detection.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F411xE -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CustomHID/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/sensor_detection.d" -MT"Core/Src/sensor_detection.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/sensor_detection.o"
+arm-none-eabi-gcc -o "chuni_st.elf" @"objects.list"   -mcpu=cortex-m4 -T"G:\ST\workspace\try1\STM32F411CEUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="chuni_st.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: chuni_st.elf
+ 
+arm-none-eabi-size  chuni_st.elf 
+arm-none-eabi-objdump -h -S chuni_st.elf  > "chuni_st.list"
+   text	   data	    bss	    dec	    hex	filename
+  43276	    316	   4880	  48472	   bd58	chuni_st.elf
 Finished building: default.size.stdout
  
 Finished building: chuni_st.list

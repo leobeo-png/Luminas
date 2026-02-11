@@ -3,6 +3,7 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="autoconfig"/>
 		<item value="DEBOUNCE_TIME_MS"/>
 		<item value="TOF_CHANNEL_SWITCH_DELAY_MS"/>
 		<item value="TOF_POLL_MS"/>
@@ -17,7 +18,6 @@
 		<item value="vl53l0x_dev"/>
 		<item value="VL53L0X_API"/>
 		<item value="initSensorDetection"/>
-		<item value="InitS"/>
 	</list>
 	<list key="replacehistory">
 		<item value="hi2c2"/>
