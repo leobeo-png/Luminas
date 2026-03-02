@@ -1,6 +1,0 @@
-../Core/Src/mpr121.c:11:6:MPR121_begin	24	static
-../Core/Src/mpr121.c:51:6:MPR121_writeRegister	32	static
-../Core/Src/mpr121.c:56:9:MPR121_readRegister8	40	static
-../Core/Src/mpr121.c:63:10:MPR121_readRegister16	40	static
-../Core/Src/mpr121.c:70:6:MPR121_setThresholds	24	static
-../Core/Src/mpr121.c:78:10:MPR121_touched	16	static

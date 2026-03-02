@@ -1,17 +1,17 @@
 # Luminas
-Rhythm game controller development. <br>
+Rhythm game controller development (Pro Micro). WIP <br>
 [Video Demo](https://www.youtube.com/watch?v=vNHZUSEBsMY "Early Prototype")
 [Video Demo](https://www.youtube.com/watch?v=JDYHQ-9xTno "Prototype Update")
 ---
 ## Description
  - Custom keyboard NKRO HID 
  - PCB size for 15.6" laptop
- - Separate I2C Bus for the capacitive touch and time of flight to reduce load
+ - ToF sensors instead of IR for compactness
 ---
 ## Components Used:
- - STM32F411CEU6
+ - Arduino Pro Micro
  - MPR121 Modules x3
- - VL53L0X ToF sensors x2 (x4 in the future)
+ - VL53L0X ToF sensors x2 
  - TCA9548 I2C Multiplexer
  - Pull-up resistors
 ---

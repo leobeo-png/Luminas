@@ -1,3 +1,0 @@
-../Core/Src/usb_hid_keyboard.c:52:13:USB_charToCode	16	static
-../Core/Src/usb_hid_keyboard.c:122:6:USB_Keyboard_SendChar	24	static
-../Core/Src/usb_hid_keyboard.c:157:6:USB_Keyboard_SendString	24	static
