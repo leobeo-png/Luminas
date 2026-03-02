@@ -1,0 +1,12 @@
+# KiCad backups & auto-save
+*-backups/
+*.bak
+*.sch-bak
+*.kicad_pcb-bak
+sch/*.kicad_sch-bak
+*_autosave-*
+\#auto_saved_files\#
+
+# Fabrication outputs (optional, if generated)
+gerbers/
+*.zip
