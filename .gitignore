@@ -8,5 +8,5 @@ sch/*.kicad_sch-bak
 \#auto_saved_files\#
 
 # Fabrication outputs (optional, if generated)
-gerbers/
+gerber/
 *.zip

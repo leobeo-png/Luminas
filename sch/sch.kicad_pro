@@ -65,11 +65,11 @@
       ],
       "drc_exclusions": [
         [
-          "unconnected_items|127500000|55600000|F.Cu|4|77cb7ea3-868c-431c-8b47-21a98694eb21|1821d84d-ca06-4415-8e39-18703455bb98",
+          "unconnected_items|127500000|55600000|F.Cu|4|88b4f985-6550-45fb-991c-7175f753ba94|1821d84d-ca06-4415-8e39-18703455bb98",
           ""
         ],
         [
-          "unconnected_items|136900000|46855000|F.Cu|4|449c7b25-b0c0-4ce5-818c-160d010e890c|47fd8e39-971f-4b66-b30a-c5951ff7cac4",
+          "unconnected_items|132100000|46855000|F.Cu|4|2f6ebbc7-fa58-400e-aacb-9e103f1647ad|449c7b25-b0c0-4ce5-818c-160d010e890c",
           ""
         ],
         [
@@ -659,8 +659,8 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
-      "pos_files": "",
+      "plot": "gerber/",
+      "pos_files": "./",
       "specctra_dsn": "",
       "step": "",
       "svg": "",
@@ -670,7 +670,7 @@
   },
   "schematic": {
     "annotate_start_num": 0,
-    "bom_export_filename": "",
+    "bom_export_filename": "bom.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -731,6 +731,12 @@
           "group_by": false,
           "label": "Description",
           "name": "Description",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Sim.Pins",
+          "name": "Sim.Pins",
           "show": false
         }
       ],
