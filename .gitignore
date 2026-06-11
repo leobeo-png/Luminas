@@ -10,3 +10,4 @@ sch/*.kicad_sch-bak
 # Fabrication outputs (optional, if generated)
 gerber/
 *.zip
+stm32/.metadata

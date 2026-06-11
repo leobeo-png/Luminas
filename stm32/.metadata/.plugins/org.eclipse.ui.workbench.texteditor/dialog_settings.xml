@@ -3,6 +3,11 @@
 	<item key="hasShownOverlayPopupBefore" value="true"/>
 	<item key="replaceBarOpen" value="true"/>
 	<list key="searchhistory">
+		<item value="CUSTOM_HID_ReportDesc_FS"/>
+		<item value="adds"/>
+		<item value=","/>
+		<item value="variable"/>
+		<item value="define"/>
 		<item value="autoconfig"/>
 		<item value="DEBOUNCE_TIME_MS"/>
 		<item value="TOF_CHANNEL_SWITCH_DELAY_MS"/>
@@ -13,11 +18,6 @@
 		<item value="readmulti"/>
 		<item value="REG_IDENTIFICATION_MODEL_ID "/>
 		<item value="address &lt;&lt; 1"/>
-		<item value="HAL_I2C_Master_Transmit"/>
-		<item value="VL53L0X_DEV"/>
-		<item value="vl53l0x_dev"/>
-		<item value="VL53L0X_API"/>
-		<item value="initSensorDetection"/>
 	</list>
 	<list key="replacehistory">
 		<item value="hi2c2"/>

@@ -1,0 +1,4 @@
+../Core/Src/gp2y.c:20:16:mapDistance	10
+../Core/Src/gp2y.c:40:6:GP2Y_Init	1
+../Core/Src/gp2y.c:44:17:smooth	2
+../Core/Src/gp2y.c:56:6:GP2Y_Process	5

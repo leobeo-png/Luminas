@@ -1,0 +1,4 @@
+../Core/Src/hid_nkro.c:16:6:NKRO_PressKey	16	static
+../Core/Src/hid_nkro.c:26:6:NKRO_ReleaseKey	16	static
+../Core/Src/hid_nkro.c:34:6:NKRO_ReleaseAll	8	static
+../Core/Src/hid_nkro.c:38:6:NKRO_SendReport	8	static

@@ -1,0 +1,2 @@
+../Core/Src/mpr121_handler.c:30:6:MPR121_Handler_Init	16	static
+../Core/Src/mpr121_handler.c:36:6:MPR121_Handler_Process	128	static
