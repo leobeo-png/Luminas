@@ -10,7 +10,7 @@
  * @timing  redboard_hid_build(): < 5 us.
  * @errors  Parse returns false on unknown ID or wrong length.
  * @isr     Not ISR-safe.
- * @traces  SR-I-01, SR-I-02, SR-I-03, SR-I-06, SR-I-07, SR-F-10, SR-P-03
+ * @traces  SR-I-01, SR-I-02, SR-I-03, SR-I-06, SR-I-07, SR-P-03
  *
  * Reviewed against RedBoard chuniio.c (8 Nov 2026):
  *   - Input report: 9 bytes packed {id, u16 buttons, u8 HAT, u32 axis,
@@ -25,6 +25,8 @@
  *   - Operator buttons: DLL maps START (0x200) -> segatools TEST and
  *     SERVICE (0x100) or TEST (0x1000) -> segatools SERVICE. No coin over
  *     HID: coin is keyboard-only in this DLL (vk_coin, F3).
+ *     Luminas has no operator buttons (D13): bits 0x100/0x200/0x1000 are
+ *     always 0; Test/Service/Coin come from the PC keyboard.
  *   - LEDs on interface 1 (game input must be interface 0):
  *       report 4 (output): 48 bytes = brg[0..47]
  *       report 5 (output): 48 bytes = brg[48..92] + 3 padding bytes
@@ -96,10 +98,9 @@ uint16_t redboard_air_to_buttons(uint8_t air_mask);
  * @brief  Build the input report from current state.
  * @param  slider_mask  touch_mask(), bit n = zone n
  * @param  air_mask     air_read(), 6 bits
- * @param  buttons      REDBOARD_BTN_* operator bits (air bits ignored)
  */
 void redboard_hid_build(redboard_input_report_t *r, uint32_t slider_mask,
-                        uint8_t air_mask, uint16_t buttons);
+                        uint8_t air_mask);
 
 /**
  * @brief  Handle an output/feature report on interface 1 (lights).

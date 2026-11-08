@@ -14,9 +14,12 @@
  * Touch/release thresholds with hysteresis are done in the MPR121 itself
  * (registers, SR-F-03); this layer only debounces and maps.
  *
- * Mapping (to confirm in schematic): 3 chips x 12 electrodes = 36 inputs,
- * 32 used. Zone n = column (n / 2), row (n % 2), RedBoard bit order.
- * Table lives in touch.c as touch_map[chip][electrode] -> zone or 0xFF.
+ * Mapping: chip 0 ELE0..11, chip 1 ELE0..11, chip 2 ELE0..7 = 32 zones.
+ * Chip 2 ELE8..11 unused and disabled (ECR enables ELE0..n-1 contiguously,
+ * so the unused electrodes must be the highest ones). Zone n = segatools
+ * cell n (bit n of the slider bitmap): pairs of top/bottom per column;
+ * left/right direction to verify on hardware. Table in touch.c as
+ * touch_map[chip][electrode] -> zone or TOUCH_ZONE_NONE.
  */
 #ifndef TOUCH_H
 #define TOUCH_H

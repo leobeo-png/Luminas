@@ -37,6 +37,7 @@ Every header starts with the same contract block: `@layer @core @depends @timing
 4. **MPR121 does touch/release hysteresis in hardware**; `svc/touch` only debounces, maps electrodes to zones and tracks chip validity.
 5. **`mpr121.h` has its own error enum** (`mpr121_err_t`, incl. over-current flag OVCF); the bus error is kept in `dev->last_bus_err`.
 6. **`redboard_hid.h` reviewed against chuniio.c**: 9-byte input report (also served via GET_REPORT), air bits reordered (`redboard_air_to_buttons`), START→segatools Test, SERVICE/TEST→segatools Service, no coin over HID, LED reports 4/5 (48+48), 6 (18, ignored), 0x0B (LZFX, max 62 data bytes).
-7. **Electrode → zone table** in `touch.c` to be fixed with the schematic (32 of 36 inputs used).
+7. **Electrode → zone**: chip 0 and 1 use ELE0–11, chip 2 uses ELE0–7; chip 2 ELE8–11 unused (must be the highest ones, ECR enables electrodes contiguously).
+8. **No operator buttons (D13)**: Test/Service/Coin on the PC keyboard; GP16–18 are spare.
 
 Host syntax check: `gcc -std=c11 -Wall -Wextra -Werror -fsyntax-only -Isrc src/*/*.h`.

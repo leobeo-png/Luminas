@@ -3,7 +3,7 @@
  * @brief   Luminas main board pin map (Architecture v0.4, section 3).
  *
  * @layer   board (no code, constants only; host-compilable)
- * @traces  SR-I-08, SR-R-07, SR-F-10
+ * @traces  SR-I-08, SR-R-07
  *
  * Module: Raspberry Pi Pico-compatible USB-C clone (D4).
  * GP23, GP24 and GP29 are module-internal and must not be used.
@@ -40,11 +40,6 @@
 /* WS2812B data, PIO0 SM0, via 74AHCT1G125 */
 #define PIN_LED_DATA        (15U)
 
-/* Buttons: internal pull-up, active low */
-#define PIN_BTN_TEST        (16U)
-#define PIN_BTN_SERVICE     (17U)
-#define PIN_BTN_START       (18U)
-
 /* Debug markers for latency measurement */
 #define PIN_DBG0            (19U)
 #define PIN_DBG1            (20U)
@@ -59,7 +54,8 @@
 #define ADC_CH_AIR_OUT      (0U)
 #define ADC_CH_V5SW_SENSE   (1U)
 
-/* Spare, broken out to pads: GP9, GP22, GP28 (ADC2) */
+/* Spare, broken out to pads: GP9, GP16, GP17, GP18, GP22, GP28 (ADC2).
+ * No operator buttons: Test/Service/Coin stay on the PC keyboard (D13). */
 
 /* I2C addresses (ADDR straps) */
 #define MPR121_ADDR_0       (0x5AU)
