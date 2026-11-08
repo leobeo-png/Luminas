@@ -36,7 +36,7 @@ Every header starts with the same contract block: `@layer @core @depends @timing
 3. **New `app/core_shared.h`**: live masks (lock-free) and diagnostics (seqlock).
 4. **MPR121 does touch/release hysteresis in hardware**; `svc/touch` only debounces, maps electrodes to zones and tracks chip validity.
 5. **`mpr121.h` has its own error enum** (`mpr121_err_t`, incl. over-current flag OVCF); the bus error is kept in `dev->last_bus_err`.
-6. **Open in `redboard_hid.h`**: verify the input report byte order, the LED report 4/5 split, and the LZFX/air-tower report lengths against chuniio.c (commit 597e5a3) before implementation.
+6. **`redboard_hid.h` reviewed against chuniio.c**: 9-byte input report (also served via GET_REPORT), air bits reordered (`redboard_air_to_buttons`), START→segatools Test, SERVICE/TEST→segatools Service, no coin over HID, LED reports 4/5 (48+48), 6 (18, ignored), 0x0B (LZFX, max 62 data bytes).
 7. **Electrode → zone table** in `touch.c` to be fixed with the schematic (32 of 36 inputs used).
 
 Host syntax check: `gcc -std=c11 -Wall -Wextra -Werror -fsyntax-only -Isrc src/*/*.h`.
