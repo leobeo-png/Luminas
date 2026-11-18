@@ -30,8 +30,8 @@
   "erc": {
     "erc_exclusions": [
       [
-        "pin_to_pin|1460500|1231900|289a6699-f89f-4abd-81a6-c425f618f8f5|761962d3-d33b-4871-b36c-4e2782bbc28c|/e55ac126-56bc-4217-b65c-0b9a07bea685/0ac82735-c68d-41fc-845e-19756e5f2909|/e55ac126-56bc-4217-b65c-0b9a07bea685/0ac82735-c68d-41fc-845e-19756e5f2909|/e55ac126-56bc-4217-b65c-0b9a07bea685/0ac82735-c68d-41fc-845e-19756e5f2909",
-        "Library symbol types GND/AGND as power output; same net by design"
+        "pin_to_pin|1689100|1104900|761962d3-d33b-4871-b36c-4e2782bbc28c|289a6699-f89f-4abd-81a6-c425f618f8f5|/e55ac126-56bc-4217-b65c-0b9a07bea685/0ac82735-c68d-41fc-845e-19756e5f2909|/e55ac126-56bc-4217-b65c-0b9a07bea685/0ac82735-c68d-41fc-845e-19756e5f2909|/e55ac126-56bc-4217-b65c-0b9a07bea685/0ac82735-c68d-41fc-845e-19756e5f2909",
+        ""
       ]
     ],
     "meta": {
@@ -429,7 +429,7 @@
         "uuid": "e55ac126-56bc-4217-b65c-0b9a07bea685"
       }
     ],
-    "used_designators": "#PWR1-11,Q1-2,A1-2,#FLG1,R1-6,C1-5",
+    "used_designators": "#PWR1-32,Q1-2,A1-2,R1-16,#FLG1,C1-11,E1-36,U1-3,J1",
     "variants": []
   },
   "sheets": [
