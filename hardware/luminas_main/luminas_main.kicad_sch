@@ -1,0 +1,295 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "e55ac126-56bc-4217-b65c-0b9a07bea685")
+	(paper "A4")
+	(title_block
+		(title "Luminas main")
+		(date "2026-11-18")
+		(rev "A")
+	)
+	(lib_symbols)
+	(sheet
+		(at 20.32 22.225)
+		(size 38.1 23.495)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "0ac82735-c68d-41fc-845e-19756e5f2909")
+		(property "Sheetname" "MCU"
+			(at 20.32 21.5134 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "mcu.kicad_sch"
+			(at 20.32 46.3046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 71.755 21.59)
+		(size 42.545 24.13)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "192ee95e-8e12-4337-b110-40d3a3a1ede4")
+		(property "Sheetname" "Power"
+			(at 71.755 20.8784 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "power.kicad_sch"
+			(at 71.755 46.3046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 191.135 22.225)
+		(size 45.085 24.765)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "3626c4f2-b163-4ea2-a451-549548daaed4")
+		(property "Sheetname" "LEDs"
+			(at 191.135 21.5134 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "leds.kicad_sch"
+			(at 191.135 47.5746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685"
+					(page "5")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 130.175 20.955)
+		(size 44.45 24.765)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "60f5f652-20ff-4d82-b961-a3b20bb602b6")
+		(property "Sheetname" "Touch"
+			(at 130.175 20.2434 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "touch.kicad_sch"
+			(at 130.175 46.3046 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685"
+					(page "4")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 70.485 63.5)
+		(size 43.18 26.67)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "64317c19-94d4-4c63-bf65-38dabc2faa6e")
+		(property "Sheetname" "Debug"
+			(at 70.485 62.7884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "debug.kicad_sch"
+			(at 70.485 90.7546 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685"
+					(page "7")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 20.955 63.5)
+		(size 38.1 26.035)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "93d11839-3419-4795-bfdf-870c70561e09")
+		(property "Sheetname" "Air"
+			(at 20.955 62.7884 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "air_sch.kicad_sch"
+			(at 20.955 90.1196 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685"
+					(page "6")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+	(embedded_fonts no)
+)
