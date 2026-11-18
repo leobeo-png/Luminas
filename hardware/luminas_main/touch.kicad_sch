@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "c970056c-0293-44f5-8a77-fbaf900387df")
+	(uuid "7abd08cc-5c4e-430d-aae6-7f8a6704d740")
 	(paper "A4")
 	(lib_symbols
 		(symbol "Connector_Generic:Conn_01x04"
@@ -5433,7 +5433,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nf"
+		(property "Value" "100nF"
 			(at 119.38 115.5699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5664,7 +5664,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "65a30289-62b8-4ae4-b12d-553dd2c7899c")
-		(property "Reference" "J1"
+		(property "Reference" "J3"
 			(at 238.76 77.47 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5732,7 +5732,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/60f5f652-20ff-4d82-b961-a3b20bb602b6"
-					(reference "J1")
+					(reference "J3")
 					(unit 1)
 				)
 			)
@@ -5917,7 +5917,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nf"
+		(property "Value" "100nF"
 			(at 119.38 48.2599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7823,7 +7823,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100nf"
+		(property "Value" "100nF"
 			(at 229.87 45.7199 0)
 			(show_name no)
 			(do_not_autoplace no)

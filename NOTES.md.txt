@@ -1,0 +1,1 @@
+Next (Thu 19): Air sheet (J1 emitter 7-pin, J2 receiver 6-pin keyed, R25 IR_EN pull-down) + Debug sheet (RUN reset switch, SWD 3-pin header, UART header, test points, DBG0–2, spare pads). Export netlist when done.

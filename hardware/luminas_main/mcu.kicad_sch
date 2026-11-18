@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "8c2d70f8-6852-42e4-810b-5b41d8b8b85c")
+	(uuid "055e297d-166b-479d-9c8c-cbf90aa3315b")
 	(paper "A4")
 	(lib_symbols
 		(symbol "MCU_Module:RaspberryPi_Pico_Debug"
