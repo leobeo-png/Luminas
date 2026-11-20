@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "1d480371-e4a8-4a10-aa78-1eafef0e5e7b")
+	(uuid "790385e1-4ff3-4927-b329-f41d161bc634")
 	(paper "A3")
 	(title_block
 		(date "2026-11-18")
@@ -6626,7 +6626,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "027241d1-f82f-4b4b-9fba-db47d22462af")
-		(property "Reference" "U25"
+		(property "Reference" "U27"
 			(at 94.234 160.274 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6729,7 +6729,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U25")
+					(reference "U27")
 					(unit 1)
 				)
 			)
@@ -6982,7 +6982,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "10fa5d14-4c63-4630-9e0b-1224ff8ffc1c")
-		(property "Reference" "U28"
+		(property "Reference" "U31"
 			(at 131.826 199.644 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7085,7 +7085,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U28")
+					(reference "U31")
 					(unit 1)
 				)
 			)
@@ -7103,7 +7103,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "10fe8167-46c7-4b6d-b0c6-aea45528fe83")
-		(property "Reference" "U31"
+		(property "Reference" "U24"
 			(at 174.244 160.274 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7206,7 +7206,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U31")
+					(reference "U24")
 					(unit 1)
 				)
 			)
@@ -8861,7 +8861,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "4af1a1ad-1c41-4416-8e93-7a4aaba78fee")
-		(property "Reference" "U29"
+		(property "Reference" "U25"
 			(at 147.574 160.274 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8964,7 +8964,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U29")
+					(reference "U25")
 					(unit 1)
 				)
 			)
@@ -10060,7 +10060,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "5e621118-af46-4a3b-af42-1cac1b37a155")
-		(property "Reference" "U27"
+		(property "Reference" "U26"
 			(at 120.904 160.274 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10163,7 +10163,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U27")
+					(reference "U26")
 					(unit 1)
 				)
 			)
@@ -11258,7 +11258,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "717232c1-ec0b-4494-8681-7d34f50e740f")
-		(property "Reference" "U32"
+		(property "Reference" "U33"
 			(at 185.166 199.644 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11361,7 +11361,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U32")
+					(reference "U33")
 					(unit 1)
 				)
 			)
@@ -11659,7 +11659,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7c6b7eb6-7a48-4f42-90c3-4f21c5242d25")
-		(property "Reference" "U33"
+		(property "Reference" "U23"
 			(at 199.644 160.274 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11762,7 +11762,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U33")
+					(reference "U23")
 					(unit 1)
 				)
 			)
@@ -11779,7 +11779,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "7cba1d3a-1a4b-450f-8dd1-24ed7e039a96")
-		(property "Reference" "U30"
+		(property "Reference" "U32"
 			(at 158.496 199.644 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11882,7 +11882,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U30")
+					(reference "U32")
 					(unit 1)
 				)
 			)
@@ -13424,7 +13424,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b2d32f5a-add5-468e-a044-9614e73cd285")
-		(property "Reference" "U24"
+		(property "Reference" "U29"
 			(at 79.756 199.644 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13527,7 +13527,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U24")
+					(reference "U29")
 					(unit 1)
 				)
 			)
@@ -13703,7 +13703,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b7eaeeb9-2fae-464e-b243-6939ed8b997e")
-		(property "Reference" "U26"
+		(property "Reference" "U30"
 			(at 105.156 199.644 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13806,7 +13806,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U26")
+					(reference "U30")
 					(unit 1)
 				)
 			)
@@ -15266,7 +15266,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f0c26ab0-d598-4aff-8395-2a81d27f2504")
-		(property "Reference" "U23"
+		(property "Reference" "U28"
 			(at 67.564 160.274 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -15369,7 +15369,7 @@
 		(instances
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/3626c4f2-b163-4ea2-a451-549548daaed4"
-					(reference "U23")
+					(reference "U28")
 					(unit 1)
 				)
 			)

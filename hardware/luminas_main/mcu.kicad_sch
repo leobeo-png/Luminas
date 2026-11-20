@@ -2,7 +2,7 @@
 	(version 20260306)
 	(generator "eeschema")
 	(generator_version "10.0")
-	(uuid "055e297d-166b-479d-9c8c-cbf90aa3315b")
+	(uuid "01d209be-d8df-4657-bf16-37934b685051")
 	(paper "A4")
 	(lib_symbols
 		(symbol "MCU_Module:RaspberryPi_Pico_Debug"
@@ -1570,7 +1570,7 @@
 		)
 		(uuid "f9336902-75b8-454b-bbcf-93f306ebb971")
 	)
-	(global_label "SPARE_GP18"
+	(global_label "START"
 		(shape input)
 		(at 168.91 80.01 0)
 		(fields_autoplaced yes)
@@ -1582,7 +1582,7 @@
 		)
 		(uuid "18a085f1-f75f-418b-b0df-0d7537f00c50")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 183.8089 80.01 0)
+			(at 177.3985 80.01 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1618,7 +1618,7 @@
 			)
 		)
 	)
-	(global_label "SPARE_GP17"
+	(global_label "SERVICE"
 		(shape input)
 		(at 168.91 77.47 0)
 		(fields_autoplaced yes)
@@ -1630,7 +1630,7 @@
 		)
 		(uuid "29d69b0b-9499-4a08-8916-5e349f97e755")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 183.8089 77.47 0)
+			(at 179.6361 77.47 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1714,7 +1714,7 @@
 			)
 		)
 	)
-	(global_label "SPARE_GP16"
+	(global_label "TEST"
 		(shape input)
 		(at 168.91 74.93 0)
 		(fields_autoplaced yes)
@@ -1726,7 +1726,7 @@
 		)
 		(uuid "499f030e-df02-4b8c-a5e0-a1cbf6cad721")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 183.8089 74.93 0)
+			(at 176.1889 74.93 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
