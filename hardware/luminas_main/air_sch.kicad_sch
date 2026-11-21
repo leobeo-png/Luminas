@@ -1148,6 +1148,16 @@
 	)
 	(wire
 		(pts
+			(xy 72.39 81.28) (xy 76.2 81.28)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2e75f42b-f491-437e-804f-c8037525241b")
+	)
+	(wire
+		(pts
 			(xy 49.53 53.34) (xy 49.53 50.8)
 		)
 		(stroke
@@ -1165,16 +1175,6 @@
 			(type default)
 		)
 		(uuid "326a522d-e44f-44d0-948c-93b71d47305a")
-	)
-	(wire
-		(pts
-			(xy 72.39 81.28) (xy 76.2 81.28)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "36e756f1-686e-45c6-a7eb-091c0adf2c28")
 	)
 	(wire
 		(pts
@@ -1652,7 +1652,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 41.91 52.578 90)
 			(hide yes)
 			(show_name no)
@@ -1676,6 +1676,17 @@
 		)
 		(property "Description" "Resistor"
 			(at 41.91 50.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "LCSC Part" "C25803"
+			(at 41.91 50.8 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1879,7 +1890,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x07"
+		(property "Value" "IR conn"
 			(at 83.82 44.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1890,7 +1901,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical"
 			(at 81.28 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -2210,7 +2221,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x06"
+		(property "Value" "Air out conn"
 			(at 83.82 76.1999 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2221,7 +2232,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical"
 			(at 81.28 73.66 0)
 			(hide yes)
 			(show_name no)

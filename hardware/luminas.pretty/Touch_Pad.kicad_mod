@@ -1,0 +1,76 @@
+(footprint "Touch_Pad"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "6999c26b-2e55-4af3-a43f-f2a73db6694e")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "9d54adfa-d59d-4a11-9265-2e8605d397e1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "TouchPad_20.75x29.5mm"
+		(at 0 -15.8 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "dd286dd8-eb95-43a3-a568-e7e3556c2cc7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Reference" "REF**"
+		(at -0.1 -17.125 0)
+		(unlocked yes)
+		(layer "F.Fab")
+		(uuid "19114bfb-e82e-4e53-86d9-4a58fbe3e28b")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+		)
+	)
+	(attr smd exclude_from_pos_files exclude_from_bom)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -10.575 -14.95)
+		(end 10.575 14.95)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "e89365e0-e62e-4a91-836b-7fc19c404403")
+	)
+	(pad "1" smd rect
+		(at 0 0)
+		(size 20.75 29.5)
+		(layers "F.Cu" "F.Paste")
+		(uuid "2cfd1cbe-151e-42cd-b7fb-d161d21851b2")
+	)
+	(embedded_fonts no)
+)

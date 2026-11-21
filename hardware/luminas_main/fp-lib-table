@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "luminas") (type "KiCad") (uri "C:/Users/LeoBeo/Documents/Luminas/hardware/luminas.pretty") (options "") (descr ""))
+)

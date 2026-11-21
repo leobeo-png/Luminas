@@ -1910,7 +1910,7 @@
 	)
 	(wire
 		(pts
-			(xy 106.68 31.75) (xy 106.68 36.195)
+			(xy 106.68 31.75) (xy 106.68 36.83)
 		)
 		(stroke
 			(width 0)
@@ -2100,6 +2100,16 @@
 	)
 	(wire
 		(pts
+			(xy 115.57 31.75) (xy 115.57 36.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a744d788-81f5-4fb8-b981-e30ed7ff3842")
+	)
+	(wire
+		(pts
 			(xy 25.4 30.48) (xy 29.21 30.48)
 		)
 		(stroke
@@ -2177,16 +2187,6 @@
 			(type default)
 		)
 		(uuid "f3ba9f0a-bc3c-4b68-a43f-3fe6e598f778")
-	)
-	(wire
-		(pts
-			(xy 115.57 31.75) (xy 115.57 36.195)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fe07999f-ec19-4b5c-b803-6a43e6db4ae7")
 	)
 	(wire
 		(pts
@@ -2884,7 +2884,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -2980,7 +2980,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "100n"
+		(property "Value" "100nF"
 			(at 33.02 35.5599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2991,7 +2991,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
 			(at 30.1752 38.1 0)
 			(hide yes)
 			(show_name no)
@@ -3045,7 +3045,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -3358,6 +3358,84 @@
 			(project "luminas_main"
 				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/64317c19-94d4-4c63-bf65-38dabc2faa6e"
 					(reference "#PWR073")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 115.57 36.83 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "52ff8cac-e06a-4665-9449-ced46c5719f7")
+		(property "Reference" "#PWR081"
+			(at 115.57 43.18 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 115.57 41.91 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 115.57 36.83 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a8f7c141-0850-4da4-857f-b3e7b6ea0229")
+		)
+		(instances
+			(project "luminas_main"
+				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/64317c19-94d4-4c63-bf65-38dabc2faa6e"
+					(reference "#PWR081")
 					(unit 1)
 				)
 			)
@@ -3684,7 +3762,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 106.68 36.195 0)
+		(at 106.68 36.83 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3695,7 +3773,7 @@
 		(fields_autoplaced yes)
 		(uuid "7c4f6e5a-e144-4ab1-a357-11678cd99476")
 		(property "Reference" "#PWR080"
-			(at 106.68 42.545 0)
+			(at 106.68 43.18 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3706,7 +3784,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 106.68 41.275 0)
+			(at 106.68 41.91 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3716,7 +3794,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 106.68 36.195 0)
+			(at 106.68 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3727,7 +3805,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 106.68 36.195 0)
+			(at 106.68 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3738,7 +3816,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 106.68 36.195 0)
+			(at 106.68 36.83 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3767,7 +3845,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -3924,7 +4002,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -4242,7 +4320,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -4478,7 +4556,7 @@
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
@@ -4583,7 +4661,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical"
 			(at 162.56 62.23 0)
 			(hide yes)
 			(show_name no)
@@ -4638,90 +4716,12 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 115.57 36.195 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "fce80d6d-a60e-42cc-99cd-456ca01b4584")
-		(property "Reference" "#PWR081"
-			(at 115.57 42.545 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND"
-			(at 115.57 41.275 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 115.57 36.195 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 115.57 36.195 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 115.57 36.195 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "ae58feeb-083e-4502-b16f-450bee52aa4d")
-		)
-		(instances
-			(project "luminas_main"
-				(path "/e55ac126-56bc-4217-b65c-0b9a07bea685/64317c19-94d4-4c63-bf65-38dabc2faa6e"
-					(reference "#PWR081")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:TestPoint")
 		(at 95.25 34.29 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)

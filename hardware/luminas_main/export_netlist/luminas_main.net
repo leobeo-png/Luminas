@@ -2,7 +2,7 @@
 	(version "E")
 	(design
 		(source "C:\\Users\\LeoBeo\\Documents\\Luminas\\hardware\\luminas_main\\luminas_main.kicad_sch")
-		(date "2026-11-20T22:28:47")
+		(date "2026-11-21T19:20:36")
 		(tool "Eeschema 10.0.3")
 		(sheet
 			(number "1")
@@ -520,11 +520,130 @@
 			)
 		)
 		(comp
+			(ref "C45")
+			(value "1nF")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
+			(description "Unpolarized capacitor")
+			(fields
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Unpolarized capacitor")
+			)
+			(libsource
+				(lib "Device")
+				(part "C")
+				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "Sheetname")
+				(value "MCU")
+			)
+			(property
+				(name "Sheetfile")
+				(value "mcu.kicad_sch")
+			)
+			(property
+				(name "dnp")
+			)
+			(property
+				(name "ki_keywords")
+				(value "cap capacitor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "C_*")
+			)
+			(sheetpath
+				(names "/MCU/")
+				(tstamps "/0ac82735-c68d-41fc-845e-19756e5f2909/")
+			)
+			(tstamps "36389057-63d6-4bf5-956a-fefcb3f928c8")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "R20")
+			(value "0Ω")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
+			(description "Resistor")
+			(fields
+				(field
+					(name "LCSC Part") "C21189")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Resistor")
+			)
+			(libsource
+				(lib "Device")
+				(part "R")
+				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C21189")
+			)
+			(property
+				(name "Sheetname")
+				(value "MCU")
+			)
+			(property
+				(name "Sheetfile")
+				(value "mcu.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "R res resistor")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "R_*")
+			)
+			(sheetpath
+				(names "/MCU/")
+				(tstamps "/0ac82735-c68d-41fc-845e-19756e5f2909/")
+			)
+			(tstamps "deb27b9c-bd01-4cee-902b-a2dca82d90dc")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+		(comp
 			(ref "C1")
 			(value "47nF")
 			(footprint "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
 			(description "Unpolarized capacitor")
 			(fields
+				(field
+					(name "LCSC Part") "C1622")
 				(field
 					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
 				(field
@@ -537,6 +656,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C1622")
 			)
 			(property
 				(name "Sheetname")
@@ -575,22 +698,28 @@
 		)
 		(comp
 			(ref "C2")
-			(value "100uF")
+			(value "100uF 16V")
 			(footprint "Capacitor_SMD:CP_Elec_6.3x7.7")
-			(description "Unpolarized capacitor")
+			(description "Polarized capacitor")
 			(fields
+				(field
+					(name "LCSC Part") "C72476")
 				(field
 					(name "Footprint") "Capacitor_SMD:CP_Elec_6.3x7.7")
 				(field
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "Unpolarized capacitor")
+					(name "Description") "Polarized capacitor")
 			)
 			(libsource
 				(lib "Device")
-				(part "C")
-				(description "Unpolarized capacitor")
+				(part "C_Polarized")
+				(description "Polarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C72476")
 			)
 			(property
 				(name "Sheetname")
@@ -606,7 +735,7 @@
 			)
 			(property
 				(name "ki_fp_filters")
-				(value "C_*")
+				(value "CP_*")
 			)
 			(sheetpath
 				(names "/Power/")
@@ -634,6 +763,8 @@
 			(description "Unpolarized capacitor")
 			(fields
 				(field
+					(name "LCSC Part") "C15850")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
 				(field
 					(name "Datasheet")
@@ -645,6 +776,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C15850")
 			)
 			(property
 				(name "Sheetname")
@@ -685,7 +820,7 @@
 			(ref "C4")
 			(value "100uF")
 			(footprint "Capacitor_SMD:CP_Elec_6.3x7.7")
-			(description "Unpolarized capacitor")
+			(description "Polarized capacitor")
 			(fields
 				(field
 					(name "Footprint") "Capacitor_SMD:CP_Elec_6.3x7.7")
@@ -693,12 +828,12 @@
 					(name "Datasheet")
 				)
 				(field
-					(name "Description") "Unpolarized capacitor")
+					(name "Description") "Polarized capacitor")
 			)
 			(libsource
 				(lib "Device")
-				(part "C")
-				(description "Unpolarized capacitor")
+				(part "C_Polarized")
+				(description "Polarized capacitor")
 			)
 			(property
 				(name "Sheetname")
@@ -717,7 +852,7 @@
 			)
 			(property
 				(name "ki_fp_filters")
-				(value "C_*")
+				(value "CP_*")
 			)
 			(sheetpath
 				(names "/Power/")
@@ -745,6 +880,8 @@
 			(description "Unpolarized capacitor")
 			(fields
 				(field
+					(name "LCSC Part") "C1710")
+				(field
 					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric_Pad1.18x1.45mm_HandSolder")
 				(field
 					(name "Datasheet")
@@ -756,6 +893,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C1710")
 			)
 			(property
 				(name "Sheetname")
@@ -800,6 +941,8 @@
 			(description "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23")
 			(fields
 				(field
+					(name "LCSC Part") "C15127")
+				(field
 					(name "Footprint") "Package_TO_SOT_SMD:SOT-23")
 				(field
 					(name "Datasheet") "http://www.aosmd.com/pdfs/datasheet/AO3401A.pdf")
@@ -810,6 +953,10 @@
 				(lib "Transistor_FET")
 				(part "AO3401A")
 				(description "-4.0A Id, -30V Vds, P-Channel MOSFET, SOT-23")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C15127")
 			)
 			(property
 				(name "Sheetname")
@@ -857,6 +1004,8 @@
 			(description "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23")
 			(fields
 				(field
+					(name "LCSC Part") "C8545")
+				(field
 					(name "Footprint") "Package_TO_SOT_SMD:SOT-23")
 				(field
 					(name "Datasheet") "https://www.onsemi.com/pub/Collateral/NDS7002A-D.PDF")
@@ -867,6 +1016,10 @@
 				(lib "Transistor_FET")
 				(part "2N7002")
 				(description "0.115A Id, 60V Vds, N-Channel MOSFET, SOT-23")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C8545")
 			)
 			(property
 				(name "Sheetname")
@@ -909,11 +1062,13 @@
 		(comp
 			(ref "R1")
 			(value "100kΩ")
-			(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint") "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+					(name "LCSC Part") "C149504")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -924,6 +1079,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C149504")
 			)
 			(property
 				(name "Sheetname")
@@ -963,11 +1122,13 @@
 		(comp
 			(ref "R2")
 			(value "47kΩ")
-			(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint") "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+					(name "LCSC Part") "C17713")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -978,6 +1139,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C17713")
 			)
 			(property
 				(name "Sheetname")
@@ -1017,11 +1182,11 @@
 		(comp
 			(ref "R3")
 			(value "0Ω")
-			(footprint "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
+			(footprint "Resistor_SMD:R_1206_3216Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint") "Resistor_SMD:R_1206_3216Metric_Pad1.30x1.75mm_HandSolder")
+					(name "Footprint") "Resistor_SMD:R_1206_3216Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1074,11 +1239,13 @@
 		(comp
 			(ref "R4")
 			(value "100kΩ")
-			(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint") "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+					(name "LCSC Part") "C149504")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1089,6 +1256,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C149504")
 			)
 			(property
 				(name "Sheetname")
@@ -1128,11 +1299,13 @@
 		(comp
 			(ref "R5")
 			(value "100kΩ")
-			(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint") "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+					(name "LCSC Part") "C149504")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1143,6 +1316,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C149504")
 			)
 			(property
 				(name "Sheetname")
@@ -1182,11 +1359,13 @@
 		(comp
 			(ref "R6")
 			(value "100kΩ")
-			(footprint "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint") "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder")
+					(name "LCSC Part") "C149504")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1197,6 +1376,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C149504")
 			)
 			(property
 				(name "Sheetname")
@@ -1236,11 +1419,13 @@
 		(comp
 			(ref "C6")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1251,6 +1436,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -1290,11 +1479,13 @@
 		(comp
 			(ref "C7")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1305,6 +1496,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -1344,11 +1539,13 @@
 		(comp
 			(ref "C8")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1359,6 +1556,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -1398,11 +1599,13 @@
 		(comp
 			(ref "C9")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1413,6 +1616,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -1452,11 +1659,13 @@
 		(comp
 			(ref "C10")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1467,6 +1676,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -1506,11 +1719,13 @@
 		(comp
 			(ref "C11")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -1521,6 +1736,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -1560,10 +1779,10 @@
 		(comp
 			(ref "E1")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1583,6 +1802,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1603,10 +1825,10 @@
 		(comp
 			(ref "E2")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1626,6 +1848,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1646,10 +1871,10 @@
 		(comp
 			(ref "E3")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1669,6 +1894,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1689,10 +1917,10 @@
 		(comp
 			(ref "E4")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1712,6 +1940,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1732,10 +1963,10 @@
 		(comp
 			(ref "E5")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1755,6 +1986,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1775,10 +2009,10 @@
 		(comp
 			(ref "E6")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1798,6 +2032,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1818,10 +2055,10 @@
 		(comp
 			(ref "E7")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1841,6 +2078,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1861,10 +2101,10 @@
 		(comp
 			(ref "E8")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1884,6 +2124,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1904,10 +2147,10 @@
 		(comp
 			(ref "E9")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1927,6 +2170,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1947,10 +2193,10 @@
 		(comp
 			(ref "E10")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -1970,6 +2216,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -1990,10 +2239,10 @@
 		(comp
 			(ref "E11")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2013,6 +2262,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2033,10 +2285,10 @@
 		(comp
 			(ref "E12")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2056,6 +2308,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2076,10 +2331,10 @@
 		(comp
 			(ref "E13")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2099,6 +2354,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2119,10 +2377,10 @@
 		(comp
 			(ref "E14")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2142,6 +2400,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2162,10 +2423,10 @@
 		(comp
 			(ref "E15")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2185,6 +2446,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2205,10 +2469,10 @@
 		(comp
 			(ref "E16")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2228,6 +2492,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2248,10 +2515,10 @@
 		(comp
 			(ref "E17")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2271,6 +2538,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2291,10 +2561,10 @@
 		(comp
 			(ref "E18")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2314,6 +2584,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2334,10 +2607,10 @@
 		(comp
 			(ref "E19")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2357,6 +2630,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2377,10 +2653,10 @@
 		(comp
 			(ref "E20")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2400,6 +2676,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2420,10 +2699,10 @@
 		(comp
 			(ref "E21")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2443,6 +2722,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2463,10 +2745,10 @@
 		(comp
 			(ref "E22")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2486,6 +2768,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2506,10 +2791,10 @@
 		(comp
 			(ref "E23")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2529,6 +2814,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2549,10 +2837,10 @@
 		(comp
 			(ref "E24")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2572,6 +2860,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2592,10 +2883,10 @@
 		(comp
 			(ref "E25")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2615,6 +2906,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2635,10 +2929,10 @@
 		(comp
 			(ref "E26")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2658,6 +2952,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2678,10 +2975,10 @@
 		(comp
 			(ref "E27")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2701,6 +2998,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2721,10 +3021,10 @@
 		(comp
 			(ref "E28")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2744,6 +3044,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2764,10 +3067,10 @@
 		(comp
 			(ref "E29")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2787,6 +3090,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2807,10 +3113,10 @@
 		(comp
 			(ref "E30")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2830,6 +3136,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2850,10 +3159,10 @@
 		(comp
 			(ref "E31")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2873,6 +3182,9 @@
 			(property
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(sheetpath
 				(names "/Touch/")
@@ -2893,10 +3205,10 @@
 		(comp
 			(ref "E32")
 			(value "~")
+			(footprint "luminas:Touch_Pad")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "luminas:Touch_Pad")
 				(field
 					(name "Datasheet")
 				)
@@ -2917,6 +3229,9 @@
 				(name "Sheetfile")
 				(value "touch.kicad_sch")
 			)
+			(property
+				(name "exclude_from_bom")
+			)
 			(sheetpath
 				(names "/Touch/")
 				(tstamps "/60f5f652-20ff-4d82-b961-a3b20bb602b6/")
@@ -2936,11 +3251,11 @@
 		(comp
 			(ref "J3")
 			(value "Spare I2C1")
+			(footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
 			(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
 				(field
 					(name "Datasheet")
 				)
@@ -2996,11 +3311,13 @@
 		(comp
 			(ref "R7")
 			(value "2.2kΩ")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C4190")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3011,6 +3328,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C4190")
 			)
 			(property
 				(name "Sheetname")
@@ -3050,11 +3371,13 @@
 		(comp
 			(ref "R8")
 			(value "2.2kΩ")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C4190")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3065,6 +3388,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C4190")
 			)
 			(property
 				(name "Sheetname")
@@ -3104,11 +3431,13 @@
 		(comp
 			(ref "R9")
 			(value "10kΩ")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C25804")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3119,6 +3448,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -3158,11 +3491,13 @@
 		(comp
 			(ref "R10")
 			(value "75kΩ 1%")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C23242")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3173,6 +3508,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C23242")
 			)
 			(property
 				(name "Sheetname")
@@ -3212,11 +3551,13 @@
 		(comp
 			(ref "R11")
 			(value "75kΩ 1%")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C23242")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3227,6 +3568,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C23242")
 			)
 			(property
 				(name "Sheetname")
@@ -3266,11 +3611,13 @@
 		(comp
 			(ref "R12")
 			(value "75kΩ 1%")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C23242")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3281,6 +3628,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C23242")
 			)
 			(property
 				(name "Sheetname")
@@ -3320,11 +3671,11 @@
 		(comp
 			(ref "R13")
 			(value "2.2kΩ")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3377,11 +3728,13 @@
 		(comp
 			(ref "R14")
 			(value "10kΩ")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C25804")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3392,6 +3745,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -3431,11 +3788,13 @@
 		(comp
 			(ref "R15")
 			(value "10kΩ")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C25804")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3446,6 +3805,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C25804")
 			)
 			(property
 				(name "Sheetname")
@@ -3485,11 +3848,11 @@
 		(comp
 			(ref "R16")
 			(value "2.2kΩ")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3908,11 +4271,13 @@
 		(comp
 			(ref "C12")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3923,6 +4288,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -3962,11 +4331,13 @@
 		(comp
 			(ref "C13")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -3977,6 +4348,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4016,11 +4391,13 @@
 		(comp
 			(ref "C14")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4031,6 +4408,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4070,11 +4451,13 @@
 		(comp
 			(ref "C15")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4085,6 +4468,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4124,11 +4511,13 @@
 		(comp
 			(ref "C16")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4139,6 +4528,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4178,11 +4571,13 @@
 		(comp
 			(ref "C17")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4193,6 +4588,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4232,11 +4631,13 @@
 		(comp
 			(ref "C18")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4247,6 +4648,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4286,11 +4691,13 @@
 		(comp
 			(ref "C19")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4301,6 +4708,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4340,11 +4751,13 @@
 		(comp
 			(ref "C20")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4355,6 +4768,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4394,11 +4811,13 @@
 		(comp
 			(ref "C21")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4409,6 +4828,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4448,11 +4871,13 @@
 		(comp
 			(ref "C22")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4463,6 +4888,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4502,11 +4931,13 @@
 		(comp
 			(ref "C23")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4517,6 +4948,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4556,11 +4991,13 @@
 		(comp
 			(ref "C24")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4571,6 +5008,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4610,11 +5051,13 @@
 		(comp
 			(ref "C25")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4625,6 +5068,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4664,11 +5111,13 @@
 		(comp
 			(ref "C26")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4679,6 +5128,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4718,11 +5171,13 @@
 		(comp
 			(ref "C27")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4733,6 +5188,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4772,11 +5231,13 @@
 		(comp
 			(ref "C28")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4787,6 +5248,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4826,11 +5291,13 @@
 		(comp
 			(ref "C29")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4841,6 +5308,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4880,11 +5351,13 @@
 		(comp
 			(ref "C30")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4895,6 +5368,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4934,11 +5411,13 @@
 		(comp
 			(ref "C31")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -4949,6 +5428,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -4988,11 +5471,13 @@
 		(comp
 			(ref "C32")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5003,6 +5488,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5042,11 +5531,13 @@
 		(comp
 			(ref "C33")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5057,6 +5548,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5096,11 +5591,13 @@
 		(comp
 			(ref "C34")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5111,6 +5608,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5150,11 +5651,13 @@
 		(comp
 			(ref "C35")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5165,6 +5668,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5204,11 +5711,13 @@
 		(comp
 			(ref "C36")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5219,6 +5728,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5258,11 +5771,13 @@
 		(comp
 			(ref "C37")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5273,6 +5788,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5312,11 +5831,13 @@
 		(comp
 			(ref "C38")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5327,6 +5848,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5366,11 +5891,13 @@
 		(comp
 			(ref "C39")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5381,6 +5908,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5420,11 +5951,13 @@
 		(comp
 			(ref "C40")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5435,6 +5968,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5474,11 +6011,13 @@
 		(comp
 			(ref "C41")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5489,6 +6028,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5528,11 +6071,13 @@
 		(comp
 			(ref "C42")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5543,6 +6088,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5582,11 +6131,13 @@
 		(comp
 			(ref "C43")
 			(value "100nF")
+			(footprint "Capacitor_SMD:C_0603_1608Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C14663")
+				(field
+					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5597,6 +6148,10 @@
 				(lib "Device")
 				(part "C")
 				(description "Unpolarized capacitor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C14663")
 			)
 			(property
 				(name "Sheetname")
@@ -5636,11 +6191,13 @@
 		(comp
 			(ref "R17")
 			(value "33Ω")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C23140")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5651,6 +6208,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C23140")
 			)
 			(property
 				(name "Sheetname")
@@ -5690,11 +6251,11 @@
 		(comp
 			(ref "R18")
 			(value "0Ω")
+			(footprint "Resistor_SMD:R_0805_2012Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Resistor_SMD:R_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -5747,11 +6308,11 @@
 		(comp
 			(ref "TP1")
 			(value "LED_CHAIN_END")
+			(footprint "TestPoint:TestPoint_Pad_D1.5mm")
 			(description "test point")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "TestPoint:TestPoint_Pad_D1.5mm")
 				(field
 					(name "Datasheet")
 				)
@@ -5770,6 +6331,9 @@
 			(property
 				(name "Sheetfile")
 				(value "leds.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(property
 				(name "ki_keywords")
@@ -8040,12 +8604,12 @@
 		)
 		(comp
 			(ref "J1")
-			(value "Conn_01x07")
+			(value "IR conn")
+			(footprint "Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical")
 			(description "Generic connector, single row, 01x07, script generated (kicad-library-utils/schlib/autogen/connector/)")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical")
 				(field
 					(name "Datasheet")
 				)
@@ -8109,12 +8673,12 @@
 		)
 		(comp
 			(ref "J2")
-			(value "Conn_01x06")
+			(value "Air out conn")
+			(footprint "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical")
 			(description "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical")
 				(field
 					(name "Datasheet")
 				)
@@ -8176,11 +8740,13 @@
 		(comp
 			(ref "R19")
 			(value "100k")
+			(footprint "Resistor_SMD:R_0603_1608Metric")
 			(description "Resistor")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "LCSC Part") "C25803")
+				(field
+					(name "Footprint") "Resistor_SMD:R_0603_1608Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -8191,6 +8757,10 @@
 				(lib "Device")
 				(part "R")
 				(description "Resistor")
+			)
+			(property
+				(name "LCSC Part")
+				(value "C25803")
 			)
 			(property
 				(name "Sheetname")
@@ -8229,12 +8799,12 @@
 		)
 		(comp
 			(ref "C44")
-			(value "100n")
-			(footprint "Capacitor_SMD:C_0603_1608Metric")
+			(value "100nF")
+			(footprint "Capacitor_SMD:C_0805_2012Metric")
 			(description "Unpolarized capacitor")
 			(fields
 				(field
-					(name "Footprint") "Capacitor_SMD:C_0603_1608Metric")
+					(name "Footprint") "Capacitor_SMD:C_0805_2012Metric")
 				(field
 					(name "Datasheet")
 				)
@@ -8530,11 +9100,11 @@
 		(comp
 			(ref "J8")
 			(value "Conn_01x04")
+			(footprint "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
 			(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
 			(fields
 				(field
-					(name "Footprint")
-				)
+					(name "Footprint") "Connector_JST:JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical")
 				(field
 					(name "Datasheet")
 				)
@@ -8665,6 +9235,9 @@
 				(value "debug.kicad_sch")
 			)
 			(property
+				(name "exclude_from_bom")
+			)
+			(property
 				(name "ki_keywords")
 				(value "test point tp")
 			)
@@ -8714,6 +9287,9 @@
 			(property
 				(name "Sheetfile")
 				(value "debug.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(property
 				(name "ki_keywords")
@@ -8767,6 +9343,9 @@
 				(value "debug.kicad_sch")
 			)
 			(property
+				(name "exclude_from_bom")
+			)
+			(property
 				(name "ki_keywords")
 				(value "test point tp")
 			)
@@ -8816,6 +9395,9 @@
 			(property
 				(name "Sheetfile")
 				(value "debug.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(property
 				(name "ki_keywords")
@@ -8869,6 +9451,9 @@
 				(value "debug.kicad_sch")
 			)
 			(property
+				(name "exclude_from_bom")
+			)
+			(property
 				(name "ki_keywords")
 				(value "test point tp")
 			)
@@ -8920,6 +9505,9 @@
 				(value "debug.kicad_sch")
 			)
 			(property
+				(name "exclude_from_bom")
+			)
+			(property
 				(name "ki_keywords")
 				(value "test point tp")
 			)
@@ -8969,6 +9557,9 @@
 			(property
 				(name "Sheetfile")
 				(value "debug.kicad_sch")
+			)
+			(property
+				(name "exclude_from_bom")
 			)
 			(property
 				(name "ki_keywords")
@@ -9293,6 +9884,40 @@
 				)
 				(field
 					(name "Description") "Unpolarized capacitor")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Device")
+			(part "C_Polarized")
+			(description "Polarized capacitor")
+			(footprints
+				(fp "CP_*")
+			)
+			(fields
+				(field
+					(name "Reference") "C")
+				(field
+					(name "Value") "C_Polarized")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Polarized capacitor")
 			)
 			(pins
 				(pin
@@ -10650,7 +11275,7 @@
 			)
 			(node
 				(ref "C2")
-				(pin "2")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -10760,7 +11385,7 @@
 			)
 			(node
 				(ref "C4")
-				(pin "2")
+				(pin "1")
 				(pintype "passive")
 			)
 			(node
@@ -11009,15 +11634,19 @@
 			(name "AIR_OUT")
 			(class "Default")
 			(node
-				(ref "A2")
-				(pin "31")
-				(pinfunction "GPIO26_ADC0_31")
-				(pintype "bidirectional")
+				(ref "C45")
+				(pin "1")
+				(pintype "passive")
 			)
 			(node
 				(ref "J2")
 				(pin "6")
 				(pinfunction "Pin_6_6")
+				(pintype "passive")
+			)
+			(node
+				(ref "R20")
+				(pin "2")
 				(pintype "passive")
 			)
 			(node
@@ -11188,7 +11817,7 @@
 			)
 			(node
 				(ref "C2")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 			(node
@@ -11298,7 +11927,7 @@
 			)
 			(node
 				(ref "C4")
-				(pin "1")
+				(pin "2")
 				(pintype "passive")
 			)
 			(node
@@ -11323,6 +11952,11 @@
 			)
 			(node
 				(ref "C44")
+				(pin "2")
+				(pintype "passive")
+			)
+			(node
+				(ref "C45")
 				(pin "2")
 				(pintype "passive")
 			)
@@ -11949,6 +12583,22 @@
 		)
 		(net
 			(code "50")
+			(name "Net-(A2-GPIO26_ADC0)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "31")
+				(pinfunction "GPIO26_ADC0_31")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "R20")
+				(pin "1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "51")
 			(name "Net-(Q1-G)")
 			(class "Default")
 			(node
@@ -11974,7 +12624,7 @@
 			)
 		)
 		(net
-			(code "51")
+			(code "52")
 			(name "Net-(Q2-D)")
 			(class "Default")
 			(node
@@ -11990,7 +12640,7 @@
 			)
 		)
 		(net
-			(code "52")
+			(code "53")
 			(name "Net-(U1-REXT)")
 			(class "Default")
 			(node
@@ -12006,7 +12656,7 @@
 			)
 		)
 		(net
-			(code "53")
+			(code "54")
 			(name "Net-(U1-VREG)")
 			(class "Default")
 			(node
@@ -12022,7 +12672,7 @@
 			)
 		)
 		(net
-			(code "54")
+			(code "55")
 			(name "Net-(U2-REXT)")
 			(class "Default")
 			(node
@@ -12038,7 +12688,7 @@
 			)
 		)
 		(net
-			(code "55")
+			(code "56")
 			(name "Net-(U2-VREG)")
 			(class "Default")
 			(node
@@ -12054,7 +12704,7 @@
 			)
 		)
 		(net
-			(code "56")
+			(code "57")
 			(name "Net-(U3-REXT)")
 			(class "Default")
 			(node
@@ -12070,7 +12720,7 @@
 			)
 		)
 		(net
-			(code "57")
+			(code "58")
 			(name "Net-(U3-VREG)")
 			(class "Default")
 			(node
@@ -12086,7 +12736,7 @@
 			)
 		)
 		(net
-			(code "58")
+			(code "59")
 			(name "Net-(U4-Y)")
 			(class "Default")
 			(node
@@ -12102,7 +12752,7 @@
 			)
 		)
 		(net
-			(code "59")
+			(code "60")
 			(name "Net-(U5-DIN)")
 			(class "Default")
 			(node
@@ -12123,7 +12773,7 @@
 			)
 		)
 		(net
-			(code "60")
+			(code "61")
 			(name "Net-(U5-DOUT)")
 			(class "Default")
 			(node
@@ -12140,7 +12790,7 @@
 			)
 		)
 		(net
-			(code "61")
+			(code "62")
 			(name "Net-(U6-DOUT)")
 			(class "Default")
 			(node
@@ -12157,7 +12807,7 @@
 			)
 		)
 		(net
-			(code "62")
+			(code "63")
 			(name "Net-(U7-DOUT)")
 			(class "Default")
 			(node
@@ -12174,7 +12824,7 @@
 			)
 		)
 		(net
-			(code "63")
+			(code "64")
 			(name "Net-(U8-DOUT)")
 			(class "Default")
 			(node
@@ -12191,7 +12841,7 @@
 			)
 		)
 		(net
-			(code "64")
+			(code "65")
 			(name "Net-(U10-DIN)")
 			(class "Default")
 			(node
@@ -12208,7 +12858,7 @@
 			)
 		)
 		(net
-			(code "65")
+			(code "66")
 			(name "Net-(U10-DOUT)")
 			(class "Default")
 			(node
@@ -12225,7 +12875,7 @@
 			)
 		)
 		(net
-			(code "66")
+			(code "67")
 			(name "Net-(U11-DOUT)")
 			(class "Default")
 			(node
@@ -12242,7 +12892,7 @@
 			)
 		)
 		(net
-			(code "67")
+			(code "68")
 			(name "Net-(U12-DOUT)")
 			(class "Default")
 			(node
@@ -12259,7 +12909,7 @@
 			)
 		)
 		(net
-			(code "68")
+			(code "69")
 			(name "Net-(U13-DOUT)")
 			(class "Default")
 			(node
@@ -12276,7 +12926,7 @@
 			)
 		)
 		(net
-			(code "69")
+			(code "70")
 			(name "Net-(U14-DOUT)")
 			(class "Default")
 			(node
@@ -12293,7 +12943,7 @@
 			)
 		)
 		(net
-			(code "70")
+			(code "71")
 			(name "Net-(U15-DOUT)")
 			(class "Default")
 			(node
@@ -12310,7 +12960,7 @@
 			)
 		)
 		(net
-			(code "71")
+			(code "72")
 			(name "Net-(U16-DOUT)")
 			(class "Default")
 			(node
@@ -12327,7 +12977,7 @@
 			)
 		)
 		(net
-			(code "72")
+			(code "73")
 			(name "Net-(U17-DOUT)")
 			(class "Default")
 			(node
@@ -12344,7 +12994,7 @@
 			)
 		)
 		(net
-			(code "73")
+			(code "74")
 			(name "Net-(U18-DOUT)")
 			(class "Default")
 			(node
@@ -12361,7 +13011,7 @@
 			)
 		)
 		(net
-			(code "74")
+			(code "75")
 			(name "Net-(U19-DOUT)")
 			(class "Default")
 			(node
@@ -12378,7 +13028,7 @@
 			)
 		)
 		(net
-			(code "75")
+			(code "76")
 			(name "Net-(U20-DOUT)")
 			(class "Default")
 			(node
@@ -12395,7 +13045,7 @@
 			)
 		)
 		(net
-			(code "76")
+			(code "77")
 			(name "Net-(U21-DOUT)")
 			(class "Default")
 			(node
@@ -12412,7 +13062,7 @@
 			)
 		)
 		(net
-			(code "77")
+			(code "78")
 			(name "Net-(U22-DOUT)")
 			(class "Default")
 			(node
@@ -12429,7 +13079,7 @@
 			)
 		)
 		(net
-			(code "78")
+			(code "79")
 			(name "Net-(U23-DOUT)")
 			(class "Default")
 			(node
@@ -12446,7 +13096,7 @@
 			)
 		)
 		(net
-			(code "79")
+			(code "80")
 			(name "Net-(U24-DOUT)")
 			(class "Default")
 			(node
@@ -12463,7 +13113,7 @@
 			)
 		)
 		(net
-			(code "80")
+			(code "81")
 			(name "Net-(U25-DOUT)")
 			(class "Default")
 			(node
@@ -12480,7 +13130,7 @@
 			)
 		)
 		(net
-			(code "81")
+			(code "82")
 			(name "Net-(U26-DOUT)")
 			(class "Default")
 			(node
@@ -12497,7 +13147,7 @@
 			)
 		)
 		(net
-			(code "82")
+			(code "83")
 			(name "Net-(U27-DOUT)")
 			(class "Default")
 			(node
@@ -12514,7 +13164,7 @@
 			)
 		)
 		(net
-			(code "83")
+			(code "84")
 			(name "Net-(U28-DOUT)")
 			(class "Default")
 			(node
@@ -12531,7 +13181,7 @@
 			)
 		)
 		(net
-			(code "84")
+			(code "85")
 			(name "Net-(U29-DOUT)")
 			(class "Default")
 			(node
@@ -12548,7 +13198,7 @@
 			)
 		)
 		(net
-			(code "85")
+			(code "86")
 			(name "Net-(U30-DOUT)")
 			(class "Default")
 			(node
@@ -12565,7 +13215,7 @@
 			)
 		)
 		(net
-			(code "86")
+			(code "87")
 			(name "Net-(U31-DOUT)")
 			(class "Default")
 			(node
@@ -12582,7 +13232,7 @@
 			)
 		)
 		(net
-			(code "87")
+			(code "88")
 			(name "Net-(U32-DOUT)")
 			(class "Default")
 			(node
@@ -12599,7 +13249,7 @@
 			)
 		)
 		(net
-			(code "88")
+			(code "89")
 			(name "Net-(U33-DOUT)")
 			(class "Default")
 			(node
@@ -12616,7 +13266,7 @@
 			)
 		)
 		(net
-			(code "89")
+			(code "90")
 			(name "Net-(U34-DOUT)")
 			(class "Default")
 			(node
@@ -12633,7 +13283,7 @@
 			)
 		)
 		(net
-			(code "90")
+			(code "91")
 			(name "Net-(U35-DOUT)")
 			(class "Default")
 			(node
@@ -12650,7 +13300,7 @@
 			)
 		)
 		(net
-			(code "91")
+			(code "92")
 			(name "RUN")
 			(class "Default")
 			(node
@@ -12672,7 +13322,7 @@
 			)
 		)
 		(net
-			(code "92")
+			(code "93")
 			(name "SERVICE")
 			(class "Default")
 			(node
@@ -12689,7 +13339,7 @@
 			)
 		)
 		(net
-			(code "93")
+			(code "94")
 			(name "SPARE_GP9")
 			(class "Default")
 			(node
@@ -12706,7 +13356,7 @@
 			)
 		)
 		(net
-			(code "94")
+			(code "95")
 			(name "SPARE_GP22")
 			(class "Default")
 			(node
@@ -12723,7 +13373,7 @@
 			)
 		)
 		(net
-			(code "95")
+			(code "96")
 			(name "SPARE_GP28")
 			(class "Default")
 			(node
@@ -12740,7 +13390,7 @@
 			)
 		)
 		(net
-			(code "96")
+			(code "97")
 			(name "START")
 			(class "Default")
 			(node
@@ -12757,7 +13407,7 @@
 			)
 		)
 		(net
-			(code "97")
+			(code "98")
 			(name "SWCLK")
 			(class "Default")
 			(node
@@ -12774,7 +13424,7 @@
 			)
 		)
 		(net
-			(code "98")
+			(code "99")
 			(name "SWDIO")
 			(class "Default")
 			(node
@@ -12791,7 +13441,7 @@
 			)
 		)
 		(net
-			(code "99")
+			(code "100")
 			(name "TEST")
 			(class "Default")
 			(node
@@ -12808,7 +13458,7 @@
 			)
 		)
 		(net
-			(code "100")
+			(code "101")
 			(name "TOUCH_IRQ0")
 			(class "Default")
 			(node
@@ -12830,7 +13480,7 @@
 			)
 		)
 		(net
-			(code "101")
+			(code "102")
 			(name "TOUCH_IRQ1")
 			(class "Default")
 			(node
@@ -12852,7 +13502,7 @@
 			)
 		)
 		(net
-			(code "102")
+			(code "103")
 			(name "TOUCH_IRQ2")
 			(class "Default")
 			(node
@@ -12874,7 +13524,7 @@
 			)
 		)
 		(net
-			(code "103")
+			(code "104")
 			(name "UART_RX")
 			(class "Default")
 			(node
@@ -12891,7 +13541,7 @@
 			)
 		)
 		(net
-			(code "104")
+			(code "105")
 			(name "UART_TX")
 			(class "Default")
 			(node
@@ -12908,7 +13558,7 @@
 			)
 		)
 		(net
-			(code "105")
+			(code "106")
 			(name "V5SW_SENSE")
 			(class "Default")
 			(node
@@ -12934,7 +13584,7 @@
 			)
 		)
 		(net
-			(code "106")
+			(code "107")
 			(name "VBUS")
 			(class "Default")
 			(node
@@ -12967,7 +13617,7 @@
 			)
 		)
 		(net
-			(code "107")
+			(code "108")
 			(name "unconnected-(A2-3V3_EN-Pad37)")
 			(class "Default")
 			(node
@@ -12978,7 +13628,7 @@
 			)
 		)
 		(net
-			(code "108")
+			(code "109")
 			(name "unconnected-(A2-ADC_VREF-Pad35)")
 			(class "Default")
 			(node
@@ -12989,7 +13639,7 @@
 			)
 		)
 		(net
-			(code "109")
+			(code "110")
 			(name "unconnected-(A2-VSYS-Pad39)")
 			(class "Default")
 			(node
@@ -13000,7 +13650,7 @@
 			)
 		)
 		(net
-			(code "110")
+			(code "111")
 			(name "unconnected-(U3-ELE8-Pad16)")
 			(class "Default")
 			(node
@@ -13011,7 +13661,7 @@
 			)
 		)
 		(net
-			(code "111")
+			(code "112")
 			(name "unconnected-(U3-ELE9-Pad17)")
 			(class "Default")
 			(node
@@ -13022,7 +13672,7 @@
 			)
 		)
 		(net
-			(code "112")
+			(code "113")
 			(name "unconnected-(U3-ELE10-Pad18)")
 			(class "Default")
 			(node
@@ -13033,7 +13683,7 @@
 			)
 		)
 		(net
-			(code "113")
+			(code "114")
 			(name "unconnected-(U3-ELE11-Pad19)")
 			(class "Default")
 			(node

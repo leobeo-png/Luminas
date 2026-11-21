@@ -4,6 +4,7 @@
 *.sch-bak
 *.kicad_pcb-bak
 sch/*.kicad_sch-bak
+hardware/*/.history
 *_autosave-*
 \#auto_saved_files\#
 
