@@ -2828,7 +2828,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "4.7k"
 			(at 156.21 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2839,7 +2839,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 151.892 50.8 90)
 			(hide yes)
 			(show_name no)
@@ -2872,7 +2872,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C25819"
+		(property "LCSC Part" "C17673"
 			(at 153.67 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -2921,7 +2921,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "4.7k"
 			(at 182.88 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2932,7 +2932,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 178.562 50.8 90)
 			(hide yes)
 			(show_name no)
@@ -2965,7 +2965,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C25819"
+		(property "LCSC Part" "C17673"
 			(at 180.34 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -3364,7 +3364,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "4.7k"
 			(at 209.55 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3375,7 +3375,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 205.232 50.8 90)
 			(hide yes)
 			(show_name no)
@@ -3408,7 +3408,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C25819"
+		(property "LCSC Part" "C17673"
 			(at 207.01 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -3706,7 +3706,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "4.7k"
 			(at 129.54 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3717,7 +3717,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 125.222 50.8 90)
 			(hide yes)
 			(show_name no)
@@ -3750,7 +3750,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C25819"
+		(property "LCSC Part" "C17673"
 			(at 127 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -5360,7 +5360,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "4.7k"
 			(at 234.95 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5371,7 +5371,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 230.632 50.8 90)
 			(hide yes)
 			(show_name no)
@@ -5404,7 +5404,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C25819"
+		(property "LCSC Part" "C17673"
 			(at 232.41 50.8 0)
 			(hide yes)
 			(show_name no)
@@ -5453,7 +5453,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "4.7k"
 			(at 260.35 52.0699 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5464,7 +5464,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 256.032 50.8 90)
 			(hide yes)
 			(show_name no)
@@ -5497,7 +5497,7 @@
 				)
 			)
 		)
-		(property "LCSC Part" "C25819"
+		(property "LCSC Part" "C17673"
 			(at 257.81 50.8 0)
 			(hide yes)
 			(show_name no)

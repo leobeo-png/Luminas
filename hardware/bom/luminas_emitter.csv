@@ -4,7 +4,6 @@
 "D1,D2,D3,D4,D5,D6","6","IR333C","","","","EasyEDA:LED-TH_BD5.0-P2.54-FD","https://www.lcsc.com/datasheet/C5200795.pdf","C5200795"
 "J1","1","Conn_01x07","","","","Connector_JST:JST_XH_B7B-XH-A_1x07_P2.50mm_Vertical","",""
 "Q1,Q2,Q3,Q4,Q5,Q6","6","AO3400A","","","","Package_TO_SOT_SMD:SOT-23","http://www.aosmd.com/pdfs/datasheet/AO3400A.pdf","C20917"
-"R1,R2,R3,R10,R11,R12","6","36Ω","","","","Resistor_SMD:R_1210_3225Metric","","C105008"
-"R4,R5,R6,R13,R14,R15","6","47Ω","","","","Resistor_SMD:R_0603_1608Metric","","C23182"
+"R1,R2,R3,R4,R5,R6,R10,R11,R12,R13,R14,R15","12","47Ω","","","","Resistor_SMD:R_0805_2012Metric","","C17714"
 "R7,R8,R9,R16,R17,R18","6","100k","","","","Resistor_SMD:R_0603_1608Metric","","C25803"
 "U1","1","74HC238D","","","","EasyEDA:SOIC-16_L9.9-W3.9-P1.27-LS6.0-BL","https://lcsc.com/product-detail/74-Series_PHILIPS_74HC238D_74HC238D_C5620.html","C5620"
