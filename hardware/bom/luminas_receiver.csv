@@ -1,0 +1,6 @@
+"Reference","Qty","Value","DNP","Exclude from BOM","Exclude from Board","Footprint","Datasheet","LCSC Part"
+"C1","1","100nF","","","","Capacitor_SMD:C_0603_1608Metric","","C14663"
+"J1","1","Conn_01x06","","","","Connector_JST:JST_PH_B6B-PH-K_1x06_P2.00mm_Vertical","",""
+"Q1,Q2,Q3,Q4,Q5,Q6","6","PT333-3B_C5134","","","","EasyEDA:SENSOR-TH_PT333-3B","https://lcsc.com/product-detail/Infrared-Receivers_PT333-3B-L-5mm_C5134.html","C5134"
+"R1,R2,R3,R4,R5,R6","6","47k","","","","Resistor_SMD:R_0603_1608Metric","","C25819"
+"U1","1","74LV4051D,118","","","","EasyEDA:SO-16_L9.9-W3.9-P1.27-LS6.0-BL","https://lcsc.com/product-detail/presales_Nexperia-74LV4051D-118_C547978.html","C547978"
